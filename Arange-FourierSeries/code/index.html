@@ -1,0 +1,1090 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.2">
+    
+    
+      
+        <title>Arange demo with Fourier Series - Numpy Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.38780c08.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f72e892.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fourier-series" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Numpy Tutorials" class="md-header-nav__button md-logo" aria-label="Numpy Tutorials">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Numpy Tutorials
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Arange demo with Fourier Series
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Numpy Tutorials" class="md-nav__button md-logo" aria-label="Numpy Tutorials">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Numpy Tutorials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Array-Intro/code/" class="md-nav__link">
+      Array Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Arange/code/" class="md-nav__link">
+      Arange
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Arange-Oscillation/code/" class="md-nav__link">
+      Arange demo with oscillation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Arange-Wave/code/" class="md-nav__link">
+      Arange demo with wave
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Arange demo with Fourier Series
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Arange demo with Fourier Series
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fourier-series" class="md-nav__link">
+    Fourier Series
+  </a>
+  
+    <nav class="md-nav" aria-label="Fourier Series">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basis-functions-sintheta-sin2theta" class="md-nav__link">
+    Basis functions (\(\sin(\theta), \sin(2\theta) ... )\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basis-functions-costheta-cos2theta" class="md-nav__link">
+    Basis functions (\(\cos(\theta), \cos(2\theta) ...)\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basis-functions-sintheta-sintheta2" class="md-nav__link">
+    Basis functions (\(\sin(\theta), \sin(\theta/2) ...)\)
+  </a>
+  
+    <nav class="md-nav" aria-label="Basis functions (\(\sin(\theta), \sin(\theta/2) ...)\)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assignment-what-are-the-periodicites" class="md-nav__link">
+    Assignment: What are the periodicites?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basis-functions-costheta-costheta2" class="md-nav__link">
+    Basis functions (\(\cos(\theta), \cos(\theta/2) ...)\)
+  </a>
+  
+    <nav class="md-nav" aria-label="Basis functions (\(\cos(\theta), \cos(\theta/2) ...)\)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assignment-what-are-the-periodicites_1" class="md-nav__link">
+    Assignment: What are the periodicites?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-fourier-series-square-wave" class="md-nav__link">
+    A : Fourier Series: Square Wave
+  </a>
+  
+    <nav class="md-nav" aria-label="A : Fourier Series: Square Wave">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-individual-basis-function-terms" class="md-nav__link">
+    1. Individual basis function terms:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2subsequent-development-by-adding-terms" class="md-nav__link">
+    2.Subsequent development by adding terms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-sum-of-all-n-terms" class="md-nav__link">
+    3. Sum of all n-terms
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assignment" class="md-nav__link">
+    Assignment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-fourier-transform" class="md-nav__link">
+    B: Fourier Transform
+  </a>
+  
+    <nav class="md-nav" aria-label="B: Fourier Transform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#experiment-1-signal-without-noise" class="md-nav__link">
+    Experiment 1: Signal without noise
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experiment-2-signal-with-noise" class="md-nav__link">
+    Experiment 2: Signal with noise
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Meshgrid/code/" class="md-nav__link">
+      Meshgrid Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Meshgrid-SphericalHrmonics/code/" class="md-nav__link">
+      Meshgrid demo with Spherical Harmonics
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Meshgrid-OptimizationExample/code/" class="md-nav__link">
+      Meshgrid demo with Optimization
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Meshgrid-SimulationExample/code/" class="md-nav__link">
+      Meshgrid demo with Simulation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Algebra/code/" class="md-nav__link">
+      Algebra
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Algebra-QuantumMechanics/" class="md-nav__link">
+      Algebra with Quantum Mechanics
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Algebra-CompositeHamiltonian/code/" class="md-nav__link">
+      Algebra with Composite Hamiltonian
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Statistics/" class="md-nav__link">
+      Statistics
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Statistics-Probability/code/" class="md-nav__link">
+      Statistics with Probability
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Statistics-Smpling/code/" class="md-nav__link">
+      Statistics with sampling
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fourier-series" class="md-nav__link">
+    Fourier Series
+  </a>
+  
+    <nav class="md-nav" aria-label="Fourier Series">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basis-functions-sintheta-sin2theta" class="md-nav__link">
+    Basis functions (\(\sin(\theta), \sin(2\theta) ... )\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basis-functions-costheta-cos2theta" class="md-nav__link">
+    Basis functions (\(\cos(\theta), \cos(2\theta) ...)\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basis-functions-sintheta-sintheta2" class="md-nav__link">
+    Basis functions (\(\sin(\theta), \sin(\theta/2) ...)\)
+  </a>
+  
+    <nav class="md-nav" aria-label="Basis functions (\(\sin(\theta), \sin(\theta/2) ...)\)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assignment-what-are-the-periodicites" class="md-nav__link">
+    Assignment: What are the periodicites?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basis-functions-costheta-costheta2" class="md-nav__link">
+    Basis functions (\(\cos(\theta), \cos(\theta/2) ...)\)
+  </a>
+  
+    <nav class="md-nav" aria-label="Basis functions (\(\cos(\theta), \cos(\theta/2) ...)\)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assignment-what-are-the-periodicites_1" class="md-nav__link">
+    Assignment: What are the periodicites?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-fourier-series-square-wave" class="md-nav__link">
+    A : Fourier Series: Square Wave
+  </a>
+  
+    <nav class="md-nav" aria-label="A : Fourier Series: Square Wave">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-individual-basis-function-terms" class="md-nav__link">
+    1. Individual basis function terms:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2subsequent-development-by-adding-terms" class="md-nav__link">
+    2.Subsequent development by adding terms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-sum-of-all-n-terms" class="md-nav__link">
+    3. Sum of all n-terms
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assignment" class="md-nav__link">
+    Assignment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-fourier-transform" class="md-nav__link">
+    B: Fourier Transform
+  </a>
+  
+    <nav class="md-nav" aria-label="B: Fourier Transform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#experiment-1-signal-without-noise" class="md-nav__link">
+    Experiment 1: Signal without noise
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experiment-2-signal-with-noise" class="md-nav__link">
+    Experiment 2: Signal with noise
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Arange demo with Fourier Series</h1>
+                
+                <h2 id="fourier-series">Fourier Series</h2>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">numpy</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">np</span>
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">plt</span>
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">seaborn</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">sns</span>
+sns<span style="color: #555555">.</span>set()
+</code></pre></div>
+
+
+<h3 id="basis-functions-sintheta-sin2theta">Basis functions (\(\sin(\theta), \sin(2\theta) ... )\)</h3>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>fs <span style="color: #555555">=</span> <span style="color: #FF6600">100</span>
+thetas <span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">2</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi,<span style="color: #FF6600">1</span><span style="color: #555555">/</span>fs)
+
+plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">20</span>,<span style="color: #FF6600">6</span>])
+
+<span style="color: #006699; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #336666">range</span>(<span style="color: #FF6600">1</span>,<span style="color: #FF6600">6</span>):
+    amp <span style="color: #555555">=</span> <span style="color: #FF6600">1</span><span style="color: #555555">*</span><span style="color: #FF6600">1</span><span style="color: #555555">/</span><span style="color: #336666">float</span>(i)
+
+    <span style="color: #CC3300; font-style: italic">&#39;&#39;&#39;Y= A sin(n.theta)&#39;&#39;&#39;</span>
+    ys <span style="color: #555555">=</span> amp<span style="color: #555555">*</span>np<span style="color: #555555">.</span>sin(i<span style="color: #555555">*</span>thetas)
+
+    lb<span style="color: #555555">=</span><span style="color: #CC3300">&quot;sin(&quot;</span><span style="color: #555555">+</span><span style="color: #336666">str</span>(i)<span style="color: #555555">+</span> <span style="color: #CC3300">r&#39;$\theta$)&#39;</span>
+    plt<span style="color: #555555">.</span>plot(thetas,ys, label<span style="color: #555555">=</span> lb)
+
+plt<span style="color: #555555">.</span>xlabel(<span style="color: #CC3300">&quot;Angle (&quot;</span><span style="color: #555555">+</span><span style="color: #CC3300">r&#39;$\theta$)&#39;</span>) 
+plt<span style="color: #555555">.</span>ylabel(<span style="color: #CC3300">r&#39;$\sin(n\theta)$&#39;</span>)
+plt<span style="color: #555555">.</span>legend()
+plt<span style="color: #555555">.</span>show()
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_3_0.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Basis function</th>
+<th>Periodicity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>//(sin(\theta)//)</td>
+<td>2$\pi$</td>
+</tr>
+<tr>
+<td>$sin(2\theta)$</td>
+<td>$\pi$</td>
+</tr>
+<tr>
+<td>$sin(3\theta)$</td>
+<td>2$\pi$/3</td>
+</tr>
+<tr>
+<td>$sin(4\theta)$</td>
+<td>$\pi$/4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="basis-functions-costheta-cos2theta">Basis functions (\(\cos(\theta), \cos(2\theta) ...)\)</h3>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>fs <span style="color: #555555">=</span> <span style="color: #FF6600">100</span>
+thetas <span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">2</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi,<span style="color: #FF6600">1</span><span style="color: #555555">/</span>fs)
+
+plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">20</span>,<span style="color: #FF6600">6</span>])
+
+<span style="color: #006699; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #336666">range</span>(<span style="color: #FF6600">1</span>,<span style="color: #FF6600">6</span>):
+    amp <span style="color: #555555">=</span> <span style="color: #FF6600">1</span><span style="color: #555555">*</span><span style="color: #FF6600">1</span><span style="color: #555555">/</span><span style="color: #336666">float</span>(i)
+
+    <span style="color: #CC3300; font-style: italic">&#39;&#39;&#39;Y= A sin(n.theta)&#39;&#39;&#39;</span>
+    ys <span style="color: #555555">=</span> amp<span style="color: #555555">*</span>np<span style="color: #555555">.</span>cos(i<span style="color: #555555">*</span>thetas)
+
+    lb <span style="color: #555555">=</span> <span style="color: #CC3300">&quot;cos(&quot;</span><span style="color: #555555">+</span><span style="color: #336666">str</span>(i)<span style="color: #555555">+</span> <span style="color: #CC3300">r&#39;$\theta$)&#39;</span>
+    plt<span style="color: #555555">.</span>plot(thetas,ys, label<span style="color: #555555">=</span>lb)
+
+plt<span style="color: #555555">.</span>xlabel(<span style="color: #CC3300">&quot;Angle (&quot;</span><span style="color: #555555">+</span><span style="color: #CC3300">r&#39;$\theta$)&#39;</span>) 
+plt<span style="color: #555555">.</span>ylabel(<span style="color: #CC3300">r&#39;$\cos(n\theta)$&#39;</span>)
+plt<span style="color: #555555">.</span>legend()
+plt<span style="color: #555555">.</span>show()
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_6_0.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Basis function</th>
+<th>Periodicity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$cos(\theta)$</td>
+<td>2$\pi$</td>
+</tr>
+<tr>
+<td>$cos(2\theta)$</td>
+<td>$\pi$</td>
+</tr>
+<tr>
+<td>$cos(3\theta)$</td>
+<td>2$\pi$/3</td>
+</tr>
+<tr>
+<td>$cos(4\theta)$</td>
+<td>$\pi$/4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="basis-functions-sintheta-sintheta2">Basis functions (\(\sin(\theta), \sin(\theta/2) ...)\)</h3>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>fs <span style="color: #555555">=</span> <span style="color: #FF6600">100</span>
+thetas <span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">20</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi,<span style="color: #FF6600">1</span><span style="color: #555555">/</span>fs)
+
+plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">20</span>,<span style="color: #FF6600">6</span>])
+
+<span style="color: #006699; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #336666">range</span>(<span style="color: #FF6600">1</span>,<span style="color: #FF6600">10</span>):
+    amp <span style="color: #555555">=</span> <span style="color: #FF6600">1</span><span style="color: #555555">*</span><span style="color: #336666">float</span>(i)
+
+    <span style="color: #CC3300; font-style: italic">&#39;&#39;&#39;Y= A sin(n.theta)&#39;&#39;&#39;</span>
+    ys <span style="color: #555555">=</span> amp<span style="color: #555555">*</span>np<span style="color: #555555">.</span>sin(thetas<span style="color: #555555">/</span><span style="color: #336666">float</span>(i))
+
+    lb <span style="color: #555555">=</span> <span style="color: #CC3300">&quot;sin(&quot;</span><span style="color: #555555">+</span><span style="color: #CC3300">r&#39;$\theta$/&#39;</span><span style="color: #555555">+</span><span style="color: #336666">str</span>(i)<span style="color: #555555">+</span><span style="color: #CC3300">&quot;)&quot;</span>
+    plt<span style="color: #555555">.</span>plot(thetas,ys, label<span style="color: #555555">=</span> lb)
+
+plt<span style="color: #555555">.</span>xlabel(<span style="color: #CC3300">&quot;Angle (&quot;</span><span style="color: #555555">+</span><span style="color: #CC3300">r&#39;$\theta$)&#39;</span>) 
+plt<span style="color: #555555">.</span>ylabel(<span style="color: #CC3300">r&#39;$\sin(\theta/n)$&#39;</span>)
+plt<span style="color: #555555">.</span>legend()
+plt<span style="color: #555555">.</span>show()
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_9_0.png" /></p>
+<h4 id="assignment-what-are-the-periodicites">Assignment: What are the periodicites?</h4>
+<h3 id="basis-functions-costheta-costheta2">Basis functions (\(\cos(\theta), \cos(\theta/2) ...)\)</h3>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>fs <span style="color: #555555">=</span> <span style="color: #FF6600">100</span>
+thetas <span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">20</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi,<span style="color: #FF6600">2</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">/</span>fs)
+
+plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">20</span>,<span style="color: #FF6600">6</span>])
+
+<span style="color: #006699; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #336666">range</span>(<span style="color: #FF6600">1</span>,<span style="color: #FF6600">9</span>):
+    amp <span style="color: #555555">=</span> <span style="color: #FF6600">1</span><span style="color: #555555">*</span><span style="color: #336666">float</span>(i)
+
+    <span style="color: #CC3300; font-style: italic">&#39;&#39;&#39;Y= A sin(n.theta)&#39;&#39;&#39;</span>
+    ys <span style="color: #555555">=</span> amp<span style="color: #555555">*</span>np<span style="color: #555555">.</span>cos(thetas<span style="color: #555555">/</span><span style="color: #336666">float</span>(i))
+
+    lb<span style="color: #555555">=</span><span style="color: #CC3300">&quot;cos(&quot;</span><span style="color: #555555">+</span><span style="color: #CC3300">r&#39;$\theta$/&#39;</span><span style="color: #555555">+</span><span style="color: #336666">str</span>(i)<span style="color: #555555">+</span><span style="color: #CC3300">&quot;)&quot;</span>
+    plt<span style="color: #555555">.</span>plot(thetas,ys, label<span style="color: #555555">=</span> lb)
+
+plt<span style="color: #555555">.</span>xlabel(<span style="color: #CC3300">&quot;Angle (&quot;</span><span style="color: #555555">+</span><span style="color: #CC3300">r&#39;$\theta$)&#39;</span>) 
+plt<span style="color: #555555">.</span>ylabel(<span style="color: #CC3300">r&#39;$\cos(\theta/n)$&#39;</span>)
+plt<span style="color: #555555">.</span>legend()
+plt<span style="color: #555555">.</span>show()
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_12_0.png" /></p>
+<h4 id="assignment-what-are-the-periodicites_1">Assignment: What are the periodicites?</h4>
+<hr />
+<h3 id="a-fourier-series-square-wave">A : Fourier Series: <a href="https://mathworld.wolfram.com/FourierSeriesSquareWave.html">Square Wave</a></h3>
+<p><img alt="img" src="https://mathworld.wolfram.com/images/equations/FourierSeriesSquareWave/NumberedEquation3.gif" /></p>
+<h4 id="1-individual-basis-function-terms">1. Individual basis function terms:</h4>
+<p>Here we want to plot the individual terms in the above series to compere the periodicity and amplitudes.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>L <span style="color: #555555">=</span> <span style="color: #FF6600">1</span>
+ns <span style="color: #555555">=</span><span style="color: #FF6600">100</span>
+thetas <span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">2</span>,<span style="color: #FF6600">1</span><span style="color: #555555">/</span>ns)
+
+plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">15</span>,<span style="color: #FF6600">4</span>])
+
+<span style="color: #006699; font-weight: bold">for</span> n <span style="color: #000000; font-weight: bold">in</span> [i <span style="color: #006699; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #336666">range</span>(<span style="color: #FF6600">10</span>) <span style="color: #006699; font-weight: bold">if</span> i<span style="color: #555555">%</span><span style="color: #FF6600">2</span> <span style="color: #555555">!=</span><span style="color: #FF6600">0</span>]:
+
+    <span style="color: #CC3300; font-style: italic">&#39;&#39;&#39;creating individual terms in the series&#39;&#39;&#39;</span>
+    fs <span style="color: #555555">=</span> (<span style="color: #FF6600">4</span><span style="color: #555555">/</span>np<span style="color: #555555">.</span>pi)<span style="color: #555555">*</span>(<span style="color: #FF6600">1</span><span style="color: #555555">/</span>n)<span style="color: #555555">*</span>np<span style="color: #555555">.</span>sin(n<span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">*</span>thetas<span style="color: #555555">/</span><span style="color: #336666">float</span>(L))
+
+    plt<span style="color: #555555">.</span>plot(thetas,fs)
+
+plt<span style="color: #555555">.</span>xlabel(<span style="color: #CC3300">&quot;Angle (&quot;</span><span style="color: #555555">+</span><span style="color: #CC3300">r&#39;$\theta$)&#39;</span>) 
+plt<span style="color: #555555">.</span>ylabel(<span style="color: #CC3300">&quot;Basis terms&quot;</span>)
+plt<span style="color: #555555">.</span>show()
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_18_0.png" /></p>
+<h4 id="2subsequent-development-by-adding-terms">2.Subsequent development by adding terms</h4>
+<p>Here we want to observe the plote of terms (e.g., first term, sum of first two terms, sum of first three terms) to realize how final series is developed by contibution of individual terms.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>L <span style="color: #555555">=</span> <span style="color: #FF6600">1</span>
+ns <span style="color: #555555">=</span><span style="color: #FF6600">100</span>
+thetas <span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">2</span>,<span style="color: #FF6600">1</span><span style="color: #555555">/</span>ns)
+plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">15</span>,<span style="color: #FF6600">4</span>])
+
+k <span style="color: #555555">=</span> <span style="color: #FF6600">1</span>
+<span style="color: #006699; font-weight: bold">for</span> n <span style="color: #000000; font-weight: bold">in</span> [i <span style="color: #006699; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #336666">range</span>(<span style="color: #FF6600">10</span>) <span style="color: #006699; font-weight: bold">if</span> i<span style="color: #555555">%</span><span style="color: #FF6600">2</span> <span style="color: #555555">!=</span> <span style="color: #FF6600">0</span>]:
+    <span style="color: #006699; font-weight: bold">if</span> n <span style="color: #555555">==</span> <span style="color: #FF6600">1</span>:
+        <span style="color: #CC3300; font-style: italic">&#39;&#39;&#39;taking care of first term&#39;&#39;&#39;</span>
+        fi <span style="color: #555555">=</span> (<span style="color: #FF6600">4</span><span style="color: #555555">/</span>np<span style="color: #555555">.</span>pi)<span style="color: #555555">*</span>(<span style="color: #FF6600">1</span><span style="color: #555555">/</span>n)<span style="color: #555555">*</span>np<span style="color: #555555">.</span>sin(n<span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">*</span>thetas<span style="color: #555555">/</span><span style="color: #336666">float</span>(L))
+        plt<span style="color: #555555">.</span>plot(thetas,fi, label <span style="color: #555555">=</span> <span style="color: #CC3300">&quot;first term&quot;</span>)
+        ff <span style="color: #555555">=</span> fi
+
+    <span style="color: #006699; font-weight: bold">else</span>:
+        <span style="color: #CC3300; font-style: italic">&#39;&#39;&#39;terms following first term&#39;&#39;&#39;</span>
+        fi <span style="color: #555555">=</span> ff <span style="color: #555555">+</span> (<span style="color: #FF6600">4</span><span style="color: #555555">/</span>np<span style="color: #555555">.</span>pi)<span style="color: #555555">*</span>(<span style="color: #FF6600">1</span><span style="color: #555555">/</span>n)<span style="color: #555555">*</span>np<span style="color: #555555">.</span>sin(n<span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">*</span>thetas<span style="color: #555555">/</span><span style="color: #336666">float</span>(L))
+        plt<span style="color: #555555">.</span>plot(thetas,fi, label <span style="color: #555555">=</span> <span style="color: #CC3300">&quot;sum of &quot;</span><span style="color: #555555">+</span><span style="color: #336666">str</span>(k)<span style="color: #555555">+</span><span style="color: #CC3300">&quot; terms&quot;</span>)
+
+        ff <span style="color: #555555">=</span> fi
+
+    k <span style="color: #555555">=</span> k<span style="color: #555555">+</span><span style="color: #FF6600">1</span>
+
+plt<span style="color: #555555">.</span>legend()
+plt<span style="color: #555555">.</span>xlabel(<span style="color: #CC3300">&quot;Angle (&quot;</span><span style="color: #555555">+</span><span style="color: #CC3300">r&#39;$\theta$)&#39;</span>) 
+plt<span style="color: #555555">.</span>ylabel(<span style="color: #CC3300">&#39;sum of n - terms&#39;</span>)
+plt<span style="color: #555555">.</span>show()
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_20_0.png" /></p>
+<h4 id="3-sum-of-all-n-terms">3. Sum of all n-terms</h4>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>L <span style="color: #555555">=</span> <span style="color: #FF6600">1</span>
+ns <span style="color: #555555">=</span><span style="color: #FF6600">100</span>
+thetas <span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">10</span>,<span style="color: #FF6600">1</span><span style="color: #555555">/</span>ns)
+plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">15</span>,<span style="color: #FF6600">4</span>])
+
+<span style="color: #CC3300; font-style: italic">&#39;&#39;&#39;including n = 1,3,5,...19th terms in basis expansison&#39;&#39;&#39;</span>
+fs <span style="color: #555555">=</span> <span style="color: #336666">sum</span>([(<span style="color: #FF6600">4</span><span style="color: #555555">/</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">*</span>(<span style="color: #FF6600">1</span><span style="color: #555555">/</span>n)<span style="color: #555555">*</span>np<span style="color: #555555">.</span>sin(n<span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">*</span>thetas<span style="color: #555555">/</span><span style="color: #336666">float</span>(L)))\
+                <span style="color: #006699; font-weight: bold">for</span> n <span style="color: #000000; font-weight: bold">in</span> [i <span style="color: #006699; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #336666">range</span>(<span style="color: #FF6600">20</span>) <span style="color: #006699; font-weight: bold">if</span> i<span style="color: #555555">%</span><span style="color: #FF6600">2</span> <span style="color: #555555">!=</span><span style="color: #FF6600">0</span>]])
+
+plt<span style="color: #555555">.</span>plot(thetas,fs,label <span style="color: #555555">=</span><span style="color: #CC3300">&quot;sawtooth wave&quot;</span>)
+plt<span style="color: #555555">.</span>legend()
+plt<span style="color: #555555">.</span>xlabel(<span style="color: #CC3300">&quot;Angle (&quot;</span><span style="color: #555555">+</span><span style="color: #CC3300">r&#39;$\theta$)&#39;</span>) 
+plt<span style="color: #555555">.</span>ylabel(<span style="color: #CC3300">&#39;Square wave&#39;</span>)
+plt<span style="color: #555555">.</span>show()
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_22_0.png" /></p>
+<hr />
+<h3 id="assignment">Assignment</h3>
+<p>Develope the Fourier series of Triangular wave following aboves method:
+    <img alt="img" src="https://mathworld.wolfram.com/images/equations/FourierSeriesTriangleWave/NumberedEquation1.gif" /></p>
+<hr />
+<h3 id="b-fourier-transform">B: Fourier Transform</h3>
+<h4 id="experiment-1-signal-without-noise">Experiment 1: Signal without noise</h4>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>fs <span style="color: #555555">=</span> <span style="color: #FF6600">100.0</span>
+ts<span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">10</span>,<span style="color: #FF6600">1</span><span style="color: #555555">/</span>fs)
+freq_cos <span style="color: #555555">=</span> [<span style="color: #FF6600">2</span>,<span style="color: #FF6600">4</span>,<span style="color: #FF6600">6</span>,<span style="color: #FF6600">8</span>,<span style="color: #FF6600">10</span>,<span style="color: #FF6600">12</span>]
+freq_sin <span style="color: #555555">=</span> [<span style="color: #FF6600">1</span>,<span style="color: #FF6600">3</span>,<span style="color: #FF6600">5</span>,<span style="color: #FF6600">7</span>,<span style="color: #FF6600">9</span>]
+
+<span style="color: #CC3300; font-style: italic">&#39;&#39;&#39;prepare candidate signals&#39;&#39;&#39;</span>
+sigs <span style="color: #555555">=</span> [np<span style="color: #555555">.</span>cos(<span style="color: #FF6600">2</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">*</span>f1<span style="color: #555555">*</span>ts) <span style="color: #555555">+</span> np<span style="color: #555555">.</span>sin(<span style="color: #FF6600">2</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">*</span>f2<span style="color: #555555">*</span>ts)\
+                    <span style="color: #006699; font-weight: bold">for</span> f1,f2 <span style="color: #000000; font-weight: bold">in</span> <span style="color: #336666">zip</span>(freq_cos,freq_sin)]
+
+<span style="color: #CC3300; font-style: italic">&#39;&#39;&#39;resultant signal&#39;&#39;&#39;</span>
+rsig <span style="color: #555555">=</span> <span style="color: #336666">sum</span>(sigs)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>fft_rsig <span style="color: #555555">=</span> np<span style="color: #555555">.</span>fft<span style="color: #555555">.</span>fft(rsig)
+fft_freq <span style="color: #555555">=</span> np<span style="color: #555555">.</span>fft<span style="color: #555555">.</span>fftfreq(<span style="color: #336666">len</span>(fft_rsig),<span style="color: #FF6600">1</span><span style="color: #555555">/</span>fs)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">18</span>,<span style="color: #FF6600">10</span>])
+
+plt<span style="color: #555555">.</span>subplot(<span style="color: #FF6600">311</span>)
+plt<span style="color: #555555">.</span>plot(ts,rsig)
+plt<span style="color: #555555">.</span>title(<span style="color: #CC3300">&quot;Original signal in Time Domain&quot;</span>)
+
+plt<span style="color: #555555">.</span>subplot(<span style="color: #FF6600">312</span>)
+plt<span style="color: #555555">.</span>stem(fft_freq, <span style="color: #336666">abs</span>(fft_rsig<span style="color: #555555">.</span>real),\
+                    label<span style="color: #555555">=</span><span style="color: #CC3300">&quot;Real part&quot;</span>)
+plt<span style="color: #555555">.</span>title(<span style="color: #CC3300">&quot;FFT in Frequency Domain&quot;</span>)
+plt<span style="color: #555555">.</span>ylim(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">1000</span>)
+plt<span style="color: #555555">.</span>xlim(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">15</span>)
+plt<span style="color: #555555">.</span>legend(loc<span style="color: #555555">=</span><span style="color: #FF6600">1</span>)
+
+plt<span style="color: #555555">.</span>subplot(<span style="color: #FF6600">313</span>)
+plt<span style="color: #555555">.</span>stem(fft_freq, <span style="color: #336666">abs</span>(fft_rsig<span style="color: #555555">.</span>imag),\
+                label<span style="color: #555555">=</span><span style="color: #CC3300">&quot;Imaginary part&quot;</span>)
+plt<span style="color: #555555">.</span>xlabel(<span style="color: #CC3300">&quot;frequency (Hz)&quot;</span>)
+plt<span style="color: #555555">.</span>legend(loc<span style="color: #555555">=</span><span style="color: #FF6600">1</span>)
+plt<span style="color: #555555">.</span>xlim(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">15</span>)
+plt<span style="color: #555555">.</span>ylim(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">1000</span>)
+plt<span style="color: #555555">.</span>show()
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_30_0.png" /></p>
+<h4 id="experiment-2-signal-with-noise">Experiment 2: Signal with noise</h4>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>fs <span style="color: #555555">=</span> <span style="color: #FF6600">100.0</span>
+ts<span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">10</span>,<span style="color: #FF6600">1</span><span style="color: #555555">/</span>fs)
+freq_cos <span style="color: #555555">=</span> [<span style="color: #FF6600">2</span>,<span style="color: #FF6600">4</span>,<span style="color: #FF6600">6</span>,<span style="color: #FF6600">8</span>,<span style="color: #FF6600">10</span>,<span style="color: #FF6600">12</span>]
+freq_sin <span style="color: #555555">=</span> [<span style="color: #FF6600">1</span>,<span style="color: #FF6600">3</span>,<span style="color: #FF6600">5</span>,<span style="color: #FF6600">7</span>,<span style="color: #FF6600">9</span>]
+
+<span style="color: #CC3300; font-style: italic">&#39;&#39;&#39;prepare candidate signals&#39;&#39;&#39;</span>
+sigs <span style="color: #555555">=</span> [np<span style="color: #555555">.</span>cos(<span style="color: #FF6600">2</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">*</span>f1<span style="color: #555555">*</span>ts) <span style="color: #555555">+</span> np<span style="color: #555555">.</span>sin(<span style="color: #FF6600">2</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">*</span>f2<span style="color: #555555">*</span>ts) \
+        <span style="color: #006699; font-weight: bold">for</span> f1,f2 <span style="color: #000000; font-weight: bold">in</span> <span style="color: #336666">zip</span>(freq_cos,freq_sin)]
+
+<span style="color: #CC3300; font-style: italic">&#39;&#39;&#39;resultant signal + noise&#39;&#39;&#39;</span>
+noise <span style="color: #555555">=</span> <span style="color: #FF6600">10</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>random<span style="color: #555555">.</span>rand(<span style="color: #336666">len</span>(rsig))
+rsig_noise <span style="color: #555555">=</span> <span style="color: #336666">sum</span>(sigs) <span style="color: #555555">+</span> noise
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>fft_rsig_noise <span style="color: #555555">=</span> np<span style="color: #555555">.</span>fft<span style="color: #555555">.</span>fft(rsig_noise)
+fft_freq_noise <span style="color: #555555">=</span> np<span style="color: #555555">.</span>fft<span style="color: #555555">.</span>fftfreq(<span style="color: #336666">len</span>(fft_rsig_noise),<span style="color: #FF6600">1</span><span style="color: #555555">/</span>fs)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">18</span>,<span style="color: #FF6600">10</span>])
+
+plt<span style="color: #555555">.</span>subplot(<span style="color: #FF6600">311</span>)
+plt<span style="color: #555555">.</span>plot(ts,rsig_noise)
+plt<span style="color: #555555">.</span>title(<span style="color: #CC3300">&quot;Original signal with noise in Time Domain&quot;</span>)
+
+plt<span style="color: #555555">.</span>subplot(<span style="color: #FF6600">312</span>)
+plt<span style="color: #555555">.</span>stem(fft_freq_noise, <span style="color: #336666">abs</span>(fft_rsig_noise<span style="color: #555555">.</span>real),\
+                        label<span style="color: #555555">=</span><span style="color: #CC3300">&quot;Real part&quot;</span>)
+plt<span style="color: #555555">.</span>title(<span style="color: #CC3300">&quot;FFT in Frequency Domain&quot;</span>)
+plt<span style="color: #555555">.</span>ylim(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">1000</span>)
+plt<span style="color: #555555">.</span>xlim(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">15</span>)
+plt<span style="color: #555555">.</span>legend(loc<span style="color: #555555">=</span><span style="color: #FF6600">1</span>)
+
+plt<span style="color: #555555">.</span>subplot(<span style="color: #FF6600">313</span>)
+plt<span style="color: #555555">.</span>stem(fft_freq_noise, <span style="color: #336666">abs</span>(fft_rsig_noise<span style="color: #555555">.</span>imag),\
+                        label<span style="color: #555555">=</span><span style="color: #CC3300">&quot;Imaginary part&quot;</span>)
+plt<span style="color: #555555">.</span>xlabel(<span style="color: #CC3300">&quot;frequency (Hz)&quot;</span>)
+plt<span style="color: #555555">.</span>legend(loc<span style="color: #555555">=</span><span style="color: #FF6600">1</span>)
+plt<span style="color: #555555">.</span>xlim(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">15</span>)
+plt<span style="color: #555555">.</span>ylim(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">1000</span>)
+plt<span style="color: #555555">.</span>show()
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_34_0.png" /></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../Arange-Wave/code/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Arange demo with wave
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../Meshgrid/code/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Meshgrid Introduction
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.77e55a48.min.js"></script>
+      <script src="../../assets/javascripts/bundle.9554a270.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

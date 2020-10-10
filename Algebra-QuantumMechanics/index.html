@@ -1,0 +1,1030 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.2">
+    
+    
+      
+        <title>Algebra with Quantum Mechanics - Numpy Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.38780c08.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f72e892.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#algebra-quantum-mechanics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Numpy Tutorials" class="md-header-nav__button md-logo" aria-label="Numpy Tutorials">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Numpy Tutorials
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Algebra with Quantum Mechanics
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Numpy Tutorials" class="md-nav__button md-logo" aria-label="Numpy Tutorials">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Numpy Tutorials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Array-Intro/code/" class="md-nav__link">
+      Array Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Arange/code/" class="md-nav__link">
+      Arange
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Arange-Oscillation/code/" class="md-nav__link">
+      Arange demo with oscillation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Arange-Wave/code/" class="md-nav__link">
+      Arange demo with wave
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Arange-FourierSeries/code/" class="md-nav__link">
+      Arange demo with Fourier Series
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Meshgrid/code/" class="md-nav__link">
+      Meshgrid Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Meshgrid-SphericalHrmonics/code/" class="md-nav__link">
+      Meshgrid demo with Spherical Harmonics
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Meshgrid-OptimizationExample/code/" class="md-nav__link">
+      Meshgrid demo with Optimization
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Meshgrid-SimulationExample/code/" class="md-nav__link">
+      Meshgrid demo with Simulation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Algebra/code/" class="md-nav__link">
+      Algebra
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Algebra with Quantum Mechanics
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Algebra with Quantum Mechanics
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#algebra-quantum-mechanics" class="md-nav__link">
+    Algebra: Quantum Mechanics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-facts-from-quantum-physics" class="md-nav__link">
+    Some Facts from Quantum Physics:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-hydrogen-atom-angular-momentum-and-spherical-harmonics" class="md-nav__link">
+    1. Hydrogen Atom: Angular Momentum and Spherical Harmonics
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Hydrogen Atom: Angular Momentum and Spherical Harmonics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spin-angular-momentum-s-12-ms-12-12" class="md-nav__link">
+    Spin Angular Momentum \(s = 1/2, ms = -1/2, 1/2\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experiment-1" class="md-nav__link">
+    Experiment 1 :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#angular-momentum-l-1-m-101" class="md-nav__link">
+    Angular Momentum \(l =1, m = -1,0,1\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experiment-2" class="md-nav__link">
+    Experiment 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#angular-momentum-plus-spin-l-32-m-32-121232" class="md-nav__link">
+    Angular Momentum plus Spin: \(l = 3/2, m = -3/2,-1/2,1/2,3/2\)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-rotation-in-hilbert-space" class="md-nav__link">
+    Summary: Rotation in Hilbert Space
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-quantum-harmonic-oscillator" class="md-nav__link">
+    2. Quantum Harmonic Oscillator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-random-matrices" class="md-nav__link">
+    3. Random Matrices
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mini-assignment" class="md-nav__link">
+    Mini Assignment:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Algebra-CompositeHamiltonian/code/" class="md-nav__link">
+      Algebra with Composite Hamiltonian
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Statistics/" class="md-nav__link">
+      Statistics
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Statistics-Probability/code/" class="md-nav__link">
+      Statistics with Probability
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Statistics-Smpling/code/" class="md-nav__link">
+      Statistics with sampling
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#algebra-quantum-mechanics" class="md-nav__link">
+    Algebra: Quantum Mechanics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-facts-from-quantum-physics" class="md-nav__link">
+    Some Facts from Quantum Physics:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-hydrogen-atom-angular-momentum-and-spherical-harmonics" class="md-nav__link">
+    1. Hydrogen Atom: Angular Momentum and Spherical Harmonics
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Hydrogen Atom: Angular Momentum and Spherical Harmonics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spin-angular-momentum-s-12-ms-12-12" class="md-nav__link">
+    Spin Angular Momentum \(s = 1/2, ms = -1/2, 1/2\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experiment-1" class="md-nav__link">
+    Experiment 1 :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#angular-momentum-l-1-m-101" class="md-nav__link">
+    Angular Momentum \(l =1, m = -1,0,1\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experiment-2" class="md-nav__link">
+    Experiment 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#angular-momentum-plus-spin-l-32-m-32-121232" class="md-nav__link">
+    Angular Momentum plus Spin: \(l = 3/2, m = -3/2,-1/2,1/2,3/2\)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-rotation-in-hilbert-space" class="md-nav__link">
+    Summary: Rotation in Hilbert Space
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-quantum-harmonic-oscillator" class="md-nav__link">
+    2. Quantum Harmonic Oscillator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-random-matrices" class="md-nav__link">
+    3. Random Matrices
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mini-assignment" class="md-nav__link">
+    Mini Assignment:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Algebra with Quantum Mechanics</h1>
+                
+                <h3 id="algebra-quantum-mechanics">Algebra: Quantum Mechanics</h3>
+<p>Reference: http://qutip.org/docs/latest/index.html</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">numpy</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">np</span>
+<span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">qutip</span> <span style="color: #006699; font-weight: bold">import</span> <span style="color: #555555">*</span>
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">seaborn</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">sns</span>
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">plt</span>
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">numpy.linalg</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">LA</span>
+<span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">scipy.linalg</span> <span style="color: #006699; font-weight: bold">import</span> expm
+<span style="color: #555555">%</span>matplotlib inline
+sns<span style="color: #555555">.</span>set()
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #0099FF; font-style: italic">#!pip install qutip</span>
+</code></pre></div>
+
+
+<h3 id="some-facts-from-quantum-physics">Some Facts from Quantum Physics:</h3>
+<ol>
+<li>Web function \(\psi(x)\) is projection of abstract quantum state \(|\psi \rangle \) (in a certain representation) to a position space (representation) basis \(|x \rangle\). Where, \(|x\rangle\) is a continuous basis with orthogonality relation $\langle x^{'}|x\rangle = \delta(x,x^{'})$.</li>
+</ol>
+<p>$$ \psi(x) = \langle x|\psi \rangle$$</p>
+<ol>
+<li>Web function \(\psi(p)\) is projection of abstract quantum state \(|\psi \rangle \) in a certain representation to a momentum space (representation)  basis \(|p \rangle\). Where, \(|p\rangle\) is a continuous basis with orthogonality relation \(\langle p^{'}|p\rangle = \delta(p,p^{'})\).</li>
+</ol>
+<p>$$\phi(p) = \langle p|\phi \rangle$$</p>
+<ol>
+<li>Spherical Harmonics \(Y_{l,m}(\theta,\phi)\) is projection of abstract quantum state \(| l,m \rangle\) (in angular momnetum representation) to a position space (representation) basis \(|\theta, \phi \rangle\).</li>
+</ol>
+<p>$$Y_{l,m}(\theta,\phi) = \langle \theta,\phi|l,m \rangle$$</p>
+<ol>
+<li>
+<p>An unitary operator U can be constructed from exponentiation of Hermitian Operator H. 
+$$U = exp(-i\alpha H)$$
+One application of this approach is defining Rotation matrix R in Hilbert space by implementation of angular momentum Operator (e.g., \(L_x, L_y, L_z\)) as generator of rotation in specific irreducible subspace (e.g.,l=0,l=1,l=2...) of the Hilbert space. A general rotation in Hilbert space is infinite dimentional rotation matrix. In eigen basis of anfgular momentum (\(L^{2}, L_z\)), this matrix appears as block diagonal matrix with block representing rotation in specific irriducible sub-space.</p>
+</li>
+<li>
+<p>In hydrogen like system with spinless particle, operator hamiltonian $H$, square of Angular momentum $L^{2}$ and z-omponent of $L$ operator(\(L_z\)) commute with eachother which means these operators are simultaneously diagonalized. The benefit of of this relation is that once we are able to find eigen basis of \(L_z\) operator, we get the eigen basis of Hamiltonian as well. The eighen states of hamiltonian represents the energy level of the system.</p>
+</li>
+</ol>
+<h3 id="1-hydrogen-atom-angular-momentum-and-spherical-harmonics">1. Hydrogen Atom: Angular Momentum and Spherical Harmonics</h3>
+<p>The matrix element of general angular momnetum operators $J,J_z,J_+,J_-$ are as follows:</p>
+<p><img alt="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTRMh9_FL09_N_ftKHwlFvsrwyJQv_wgu_hVg&amp;usqp=CAU" /></p>
+<p>One can write a python function to provide a matrix element for an arbitrary operators $J,J_z,J_+,J_-$ , but we dont have to work hard now python package <code>qutip</code> provides us these operators as quantum object <code>Quobj</code> (of kind operators). We will try to play around with some of them.</p>
+<hr />
+<h4 id="spin-angular-momentum-s-12-ms-12-12">Spin Angular Momentum \(s = 1/2, ms = -1/2, 1/2\)</h4>
+<p>Matrix size = 2x2</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>sigmax()
+</code></pre></div>
+
+
+<p>Quantum object: dims = [[2], [2]], shape = (2, 2), type = oper, isherm = True\begin{equation<em>}\left(\begin{array}{</em>{11}c}0.0 &amp; 1.0\1.0 &amp; 0.0\\end{array}\right)\end{equation*}</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>sx <span style="color: #555555">=</span> np<span style="color: #555555">.</span>array(sigmax())
+sy <span style="color: #555555">=</span> np<span style="color: #555555">.</span>array(sigmay())
+sz <span style="color: #555555">=</span> np<span style="color: #555555">.</span>array(sigmaz())
+sx,sy,sz
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>(array([[0.+0.j, 1.+0.j],
+        [1.+0.j, 0.+0.j]]), array([[0.+0.j, 0.-1.j],
+        [0.+1.j, 0.+0.j]]), array([[ 1.+0.j,  0.+0.j],
+        [ 0.+0.j, -1.+0.j]]))
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>np<span style="color: #555555">.</span>dot(sx,sx), np<span style="color: #555555">.</span>dot(sy,sy), np<span style="color: #555555">.</span>dot(sz,sz)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>(array([[1.+0.j, 0.+0.j],
+        [0.+0.j, 1.+0.j]]), array([[1.+0.j, 0.+0.j],
+        [0.+0.j, 1.+0.j]]), array([[1.+0.j, 0.+0.j],
+        [0.+0.j, 1.+0.j]]))
+</code></pre></div>
+
+
+<hr />
+<h4 id="experiment-1">Experiment 1 :</h4>
+<ul>
+<li>A generic rotation \( U_n(\theta) = e^{-i \theta n.\sigma} = e^{-i (\theta_x \sigma_x + \theta_y \sigma_y + \theta_z \sigma_z)} \)</li>
+</ul>
+<p>Note: \( U_n(\theta) = e^{-i \theta n.\sigma} \neq e^{-i (\theta_x \sigma_x)} e^{-i (\theta_y \sigma_y)} e^{-i(\theta_z \sigma_z)} \) since pauli matrices are non-commuting.</p>
+<ul>
+<li>Generic quantum state in ($s =1/2$) subspace: \(|\psi \rangle = \alpha |\psi_{1/2}\rangle + \beta |\psi_{-1/2}\rangle\)</li>
+</ul>
+<p><a href="https://math.stackexchange.com/questions/588007/non-commuting-matrix-exponentials/590120">Non-commuting Matrix exponentials</a></p>
+<hr />
+<p>Let us tast above fact by evaluating generic rotation operator $U_n$ around a arbitrary axix $n$ (i.e., $e^{-i (\theta_x \sigma_x + \theta_y \sigma_y + \theta_z \sigma_z)})$ as <code>U_direct</code> and the product of individual rotation operator (i.e.,  $ e^{-i (\theta_x \sigma_x)} e^{-i (\theta_y \sigma_y)} e^{-i(\theta_z \sigma_z)}$) as <code>U_prod</code> in the code cells below. We will clearly see that thes two terms are not equal verifying relation $e^{-i \theta n.\sigma} \neq e^{-i (\theta_x \sigma_x)} e^{-i (\theta_y \sigma_y)} e^{-i(\theta_z \sigma_z)}$.</p>
+<ul>
+<li>Calculate \(e^{-i (\theta_x \sigma_x + \theta_y \sigma_y + \theta_z \sigma_z)})\) as <code>U_direct</code></li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>U_direct <span style="color: #555555">=</span> expm(<span style="color: #555555">-</span><span style="color: #FF6600">1</span>j<span style="color: #555555">*</span>((np<span style="color: #555555">.</span>pi<span style="color: #555555">/</span><span style="color: #FF6600">12</span>)<span style="color: #555555">*</span>sx <span style="color: #555555">+</span> (np<span style="color: #555555">.</span>pi<span style="color: #555555">/</span><span style="color: #FF6600">12</span>)<span style="color: #555555">*</span>sy <span style="color: #555555">+</span> (np<span style="color: #555555">.</span>pi<span style="color: #555555">/</span><span style="color: #FF6600">12</span>)<span style="color: #555555">*</span>sz))
+U_direct
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([[ 0.89894119-0.25291945j, -0.25291945-0.25291945j],
+       [ 0.25291945-0.25291945j,  0.89894119+0.25291945j]])
+</code></pre></div>
+
+
+<ul>
+<li>Calculate \(e^{-i (\theta_x \sigma_x)} e^{-i (\theta_y \sigma_y)} e^{-i(\theta_z \sigma_z)}\) as product of three individual rotation as <code>U_prod</code></li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>Ux <span style="color: #555555">=</span> expm(<span style="color: #555555">-</span><span style="color: #FF6600">1</span>j<span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">/</span><span style="color: #FF6600">12</span><span style="color: #555555">*</span>sx)
+Uy <span style="color: #555555">=</span> expm(<span style="color: #555555">-</span><span style="color: #FF6600">1</span>j<span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">/</span><span style="color: #FF6600">10</span><span style="color: #555555">*</span>sy)
+Uz <span style="color: #555555">=</span> expm(<span style="color: #555555">-</span><span style="color: #FF6600">1</span>j<span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">/</span><span style="color: #FF6600">8</span><span style="color: #555555">*</span>sz)
+Uz,Ux,Uy
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>(array([[0.92387953-0.38268343j, 0.        +0.j        ],
+        [0.        +0.j        , 0.92387953+0.38268343j]]),
+ array([[0.96592583+0.j        , 0.        -0.25881905j],
+        [0.        -0.25881905j, 0.96592583+0.j        ]]),
+ array([[ 0.95105652+0.j, -0.30901699+0.j],
+        [ 0.30901699+0.j,  0.95105652+0.j]]))
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>U_prod <span style="color: #555555">=</span> np<span style="color: #555555">.</span>dot(Ux,np<span style="color: #555555">.</span>dot(Uy,Uz))
+U_prod
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([[ 0.81811516-0.42544356j, -0.18156837-0.34164059j],
+       [ 0.18156837-0.34164059j,  0.81811516+0.42544356j]])
+</code></pre></div>
+
+
+<ul>
+<li>Are <code>U_direct</code> and <code>U_prod</code> same Operators?
+Why? </li>
+</ul>
+<p>We can see these two operators are not same by implement them in same initial state <code>psi0</code> vector and observe the final states are not same.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>psi0 <span style="color: #555555">=</span> <span style="color: #FF6600">1</span><span style="color: #555555">/</span>np<span style="color: #555555">.</span>sqrt(<span style="color: #FF6600">2</span>)<span style="color: #555555">*</span>np<span style="color: #555555">.</span>array([<span style="color: #FF6600">1</span>,<span style="color: #FF6600">1</span>])
+psi0
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([0.70710678, 0.70710678])
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>np<span style="color: #555555">.</span>dot(U_direct,psi0), np<span style="color: #555555">.</span>dot(U_prod,psi0)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>(array([0.45680635-3.57682117e-01j, 0.81448847+8.32667268e-17j]),
+ array([0.45010655-0.5424104j , 0.706883  +0.05925765j]))
+</code></pre></div>
+
+
+<ul>
+<li>In fact, both of them are Unitary operators with determinant 1</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>LA<span style="color: #555555">.</span>det(U_direct), LA<span style="color: #555555">.</span>det(U_prod)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>((0.9999999999999999+1.1102230246251564e-16j), (1.0000000000000002+0j))
+</code></pre></div>
+
+
+<h4 id="angular-momentum-l-1-m-101">Angular Momentum \(l =1, m = -1,0,1\)</h4>
+<p>Matrix size  = 3x3</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>jmat(<span style="color: #FF6600">1</span>)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>(Quantum object: dims = [[3], [3]], shape = (3, 3), type = oper, isherm = True
+ Qobj data =
+ [[0.         0.70710678 0.        ]
+  [0.70710678 0.         0.70710678]
+  [0.         0.70710678 0.        ]],
+ Quantum object: dims = [[3], [3]], shape = (3, 3), type = oper, isherm = True
+ Qobj data =
+ [[0.+0.j         0.-0.70710678j 0.+0.j        ]
+  [0.+0.70710678j 0.+0.j         0.-0.70710678j]
+  [0.+0.j         0.+0.70710678j 0.+0.j        ]],
+ Quantum object: dims = [[3], [3]], shape = (3, 3), type = oper, isherm = True
+ Qobj data =
+ [[ 1.  0.  0.]
+  [ 0.  0.  0.]
+  [ 0.  0. -1.]])
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>LX <span style="color: #555555">=</span> np<span style="color: #555555">.</span>array(jmat(<span style="color: #FF6600">1</span>,<span style="color: #CC3300">&#39;x&#39;</span>))
+LY <span style="color: #555555">=</span> np<span style="color: #555555">.</span>array(jmat(<span style="color: #FF6600">1</span>,<span style="color: #CC3300">&#39;y&#39;</span>))
+LZ <span style="color: #555555">=</span> np<span style="color: #555555">.</span>array(jmat(<span style="color: #FF6600">1</span>,<span style="color: #CC3300">&#39;z&#39;</span>))
+</code></pre></div>
+
+
+<ul>
+<li>Do \(L_x, L_y\) commute?</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>np<span style="color: #555555">.</span>dot(LX,LY) <span style="color: #555555">==</span> np<span style="color: #555555">.</span>dot(LY,LX)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([[False,  True,  True],
+       [ True, False,  True],
+       [ True,  True, False]])
+</code></pre></div>
+
+
+<ul>
+<li>What is matrix element of $L^{2}$ ?</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>L_square <span style="color: #555555">=</span> (np<span style="color: #555555">.</span>dot(LX,LX) <span style="color: #555555">+</span> np<span style="color: #555555">.</span>dot(LY,LY) <span style="color: #555555">+</span>np<span style="color: #555555">.</span>dot(LZ,LZ))
+L_square
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([[2.+0.j, 0.+0.j, 0.+0.j],
+       [0.+0.j, 2.+0.j, 0.+0.j],
+       [0.+0.j, 0.+0.j, 2.+0.j]])
+</code></pre></div>
+
+
+<hr />
+<h4 id="experiment-2">Experiment 2</h4>
+<ul>
+<li>
+<p>Rotaion \( R(\theta) = e^{-i \theta n.L} = e^{-i (\theta_x L_x + \theta_y L_y + \theta_z L_z)} \)</p>
+</li>
+<li>
+<p>Generic quantum state in ($l =0$) subspace: \(|\psi \rangle = \alpha |\psi_{10}\rangle + \beta |\psi_{11} \rangle + \gamma |\psi_{1-1} \rangle\)</p>
+</li>
+</ul>
+<p>Let us find rotation matrix for subspace (l=1) with different values of \(\theta_x, \theta_y, \theta_z\)</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>Rx <span style="color: #555555">=</span> expm(<span style="color: #555555">-</span>(<span style="color: #FF6600">1.0</span>j)<span style="color: #555555">*</span><span style="color: #FF6600">0.1</span><span style="color: #555555">*</span>LX)
+Ry <span style="color: #555555">=</span> expm(<span style="color: #555555">-</span>(<span style="color: #FF6600">1.0</span>j)<span style="color: #555555">*</span><span style="color: #FF6600">0.2</span><span style="color: #555555">*</span>LY)
+Rz <span style="color: #555555">=</span> expm(<span style="color: #555555">-</span>(<span style="color: #FF6600">1.0</span>j)<span style="color: #555555">*</span><span style="color: #FF6600">0.3</span><span style="color: #555555">*</span>LZ)
+R_prod <span style="color: #555555">=</span> np<span style="color: #555555">.</span>dot(Rx,np<span style="color: #555555">.</span>dot(Ry,Rz))
+R_direct <span style="color: #555555">=</span> expm(<span style="color: #555555">-</span>(<span style="color: #FF6600">1.0</span>j)<span style="color: #555555">*</span>(<span style="color: #FF6600">0.1</span><span style="color: #555555">*</span>LX <span style="color: #555555">+</span> <span style="color: #FF6600">0.2</span><span style="color: #555555">*</span>LY <span style="color: #555555">+</span> <span style="color: #FF6600">0.3</span><span style="color: #555555">*</span>LZ))
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>R_prod, R_direct
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>(array([[ 0.94049792-3.01310652e-01j, -0.14048043-6.91857281e-02j,
+          0.00420456+1.16811741e-02j],
+        [ 0.11267399-1.08747365e-01j,  0.97517033+6.69983947e-18j,
+         -0.11267399-1.08747365e-01j],
+        [ 0.00420456-1.16811741e-02j,  0.14048043-6.91857281e-02j,
+          0.94049792+3.01310652e-01j]]),
+ array([[ 0.94316771-2.93048837e-01j, -0.14862798-4.81054052e-02j,
+          0.00741291+9.88387642e-03j],
+        [ 0.12766111-9.00391414e-02j,  0.97529031-1.50304582e-18j,
+         -0.12766111-9.00391414e-02j],
+        [ 0.00741291-9.88387642e-03j,  0.14862798-4.81054052e-02j,
+          0.94316771+2.93048837e-01j]]))
+</code></pre></div>
+
+
+<p><strong>Mini Assignment:</strong>
+- Roate a random vector  \(|\psi \rangle \),i.e. (\(|\psi \rangle = \alpha |\psi_{10}\rangle + \beta |\psi_{11} \rangle + \gamma |\psi_{1-1} \rangle)\) by implementing <code>R_prod</code> and <code>R_direct</code> calculated above and compere the final state vectors.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>
+</code></pre></div>
+
+
+<h4 id="angular-momentum-plus-spin-l-32-m-32-121232">Angular Momentum plus Spin: \(l = 3/2, m = -3/2,-1/2,1/2,3/2\)</h4>
+<p>Matrix size = 4x4</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>jmat(<span style="color: #FF6600">3</span><span style="color: #555555">/</span><span style="color: #FF6600">2</span>,<span style="color: #CC3300">&#39;x&#39;</span>)
+</code></pre></div>
+
+
+<p>Quantum object: dims = [[4], [4]], shape = (4, 4), type = oper, isherm = True\begin{equation<em>}\left(\begin{array}{</em>{11}c}0.0 &amp; 0.866 &amp; 0.0 &amp; 0.0\0.866 &amp; 0.0 &amp; 1.0 &amp; 0.0\0.0 &amp; 1.0 &amp; 0.0 &amp; 0.866\0.0 &amp; 0.0 &amp; 0.866 &amp; 0.0\\end{array}\right)\end{equation*}</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>jmat(<span style="color: #FF6600">3</span><span style="color: #555555">/</span><span style="color: #FF6600">2</span>,<span style="color: #CC3300">&#39;y&#39;</span>)
+</code></pre></div>
+
+
+<p>Quantum object: dims = [[4], [4]], shape = (4, 4), type = oper, isherm = True\begin{equation<em>}\left(\begin{array}{</em>{11}c}0.0 &amp; -0.866j &amp; 0.0 &amp; 0.0\0.866j &amp; 0.0 &amp; -1.0j &amp; 0.0\0.0 &amp; 1.0j &amp; 0.0 &amp; -0.866j\0.0 &amp; 0.0 &amp; 0.866j &amp; 0.0\\end{array}\right)\end{equation*}</p>
+<h3 id="summary-rotation-in-hilbert-space">Summary: Rotation in Hilbert Space</h3>
+<p>Structure of a general <a href="https://www2.ph.ed.ac.uk/~ldeldebb/docs/QM2/chap4.pdf">rotation matrix (R) in Hilbert space</a></p>
+<p>j = 1/2,1,3/2,2,5/2,3,...</p>
+<ul>
+<li>A general rotation matrix ($R$) in hilbert space of basis \(|l,m\rangle\) appears as block diagonal matrix, wher every block represents the rotation with specific subspaces called irriducible subspace.</li>
+<li>In the same basis $|l,m\rangle$  Hamiltonian Matrix $H$, $J^2$ and $J_z$ are simultaneously diagonalized.</li>
+</ul>
+<p><img alt="img" src="https://physicscourses.colorado.edu/phys5250/phys5250_fa19/images/block-diag.png" /></p>
+<hr />
+<h3 id="2-quantum-harmonic-oscillator">2. Quantum Harmonic Oscillator</h3>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>momentum(<span style="color: #FF6600">5</span>)
+</code></pre></div>
+
+
+<p>Quantum object: dims = [[5], [5]], shape = (5, 5), type = oper, isherm = True\begin{equation<em>}\left(\begin{array}{</em>{11}c}0.0 &amp; -0.707j &amp; 0.0 &amp; 0.0 &amp; 0.0\0.707j &amp; 0.0 &amp; -1.0j &amp; 0.0 &amp; 0.0\0.0 &amp; 1.0j &amp; 0.0 &amp; -1.225j &amp; 0.0\0.0 &amp; 0.0 &amp; 1.225j &amp; 0.0 &amp; -1.414j\0.0 &amp; 0.0 &amp; 0.0 &amp; 1.414j &amp; 0.0\\end{array}\right)\end{equation*}</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>position(<span style="color: #FF6600">5</span>)
+</code></pre></div>
+
+
+<p>Quantum object: dims = [[5], [5]], shape = (5, 5), type = oper, isherm = True\begin{equation<em>}\left(\begin{array}{</em>{11}c}0.0 &amp; 0.707 &amp; 0.0 &amp; 0.0 &amp; 0.0\0.707 &amp; 0.0 &amp; 1.0 &amp; 0.0 &amp; 0.0\0.0 &amp; 1.0 &amp; 0.0 &amp; 1.225 &amp; 0.0\0.0 &amp; 0.0 &amp; 1.225 &amp; 0.0 &amp; 1.414\0.0 &amp; 0.0 &amp; 0.0 &amp; 1.414 &amp; 0.0\\end{array}\right)\end{equation*}</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>create(<span style="color: #FF6600">4</span>)
+</code></pre></div>
+
+
+<p>Quantum object: dims = [[4], [4]], shape = (4, 4), type = oper, isherm = False\begin{equation<em>}\left(\begin{array}{</em>{11}c}0.0 &amp; 0.0 &amp; 0.0 &amp; 0.0\1.0 &amp; 0.0 &amp; 0.0 &amp; 0.0\0.0 &amp; 1.414 &amp; 0.0 &amp; 0.0\0.0 &amp; 0.0 &amp; 1.732 &amp; 0.0\\end{array}\right)\end{equation*}</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>destroy(<span style="color: #FF6600">5</span>)
+</code></pre></div>
+
+
+<p>Quantum object: dims = [[5], [5]], shape = (5, 5), type = oper, isherm = False\begin{equation<em>}\left(\begin{array}{</em>{11}c}0.0 &amp; 1.0 &amp; 0.0 &amp; 0.0 &amp; 0.0\0.0 &amp; 0.0 &amp; 1.414 &amp; 0.0 &amp; 0.0\0.0 &amp; 0.0 &amp; 0.0 &amp; 1.732 &amp; 0.0\0.0 &amp; 0.0 &amp; 0.0 &amp; 0.0 &amp; 2.0\0.0 &amp; 0.0 &amp; 0.0 &amp; 0.0 &amp; 0.0\\end{array}\right)\end{equation*}</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>num(<span style="color: #FF6600">4</span>)
+</code></pre></div>
+
+
+<p>Quantum object: dims = [[4], [4]], shape = (4, 4), type = oper, isherm = True\begin{equation<em>}\left(\begin{array}{</em>{11}c}0.0 &amp; 0.0 &amp; 0.0 &amp; 0.0\0.0 &amp; 1.0 &amp; 0.0 &amp; 0.0\0.0 &amp; 0.0 &amp; 2.0 &amp; 0.0\0.0 &amp; 0.0 &amp; 0.0 &amp; 3.0\\end{array}\right)\end{equation*}</p>
+<h3 id="3-random-matrices">3. Random Matrices</h3>
+<ul>
+<li>Random hermitian matrix</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>rand_herm(<span style="color: #FF6600">4</span>)
+</code></pre></div>
+
+
+<p>Quantum object: dims = [[4], [4]], shape = (4, 4), type = oper, isherm = True\begin{equation<em>}\left(\begin{array}{</em>{11}c}-0.501 &amp; (-0.172+0.146j) &amp; 0.0 &amp; (-0.060+0.697j)\(-0.172-0.146j) &amp; 0.169 &amp; (-0.305+0.588j) &amp; (0.044+0.641j)\0.0 &amp; (-0.305-0.588j) &amp; 0.0 &amp; (-0.458-0.087j)\(-0.060-0.697j) &amp; (0.044-0.641j) &amp; (-0.458+0.087j) &amp; 0.756\\end{array}\right)\end{equation*}</p>
+<ul>
+<li>Random Unitary Matrix</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>rand_unitary(<span style="color: #FF6600">4</span>)
+</code></pre></div>
+
+
+<p>Quantum object: dims = [[4], [4]], shape = (4, 4), type = oper, isherm = False\begin{equation<em>}\left(\begin{array}{</em>{11}c}(0.332-0.610j) &amp; (-0.248+0.007j) &amp; (-0.332-0.267j) &amp; (0.468-0.235j)\(-0.062-0.085j) &amp; (0.838-0.353j) &amp; (-0.312-0.253j) &amp; (3.589\times10^{-05}-0.034j)\(-0.032-0.481j) &amp; (0.145-0.293j) &amp; (0.790+0.106j) &amp; (0.020-0.156j)\(-0.427+0.302j) &amp; (0.069+0.006j) &amp; (0.109+0.097j) &amp; (0.834-0.066j)\\end{array}\right)\end{equation*}</p>
+<h3 id="mini-assignment">Mini Assignment:</h3>
+<ol>
+<li>Generate a random Hermitian matrix $H$ of size 10 by 10.</li>
+<li>Diagonalize the Hermitian Operator $H$ and find eigne values and eigen vectors.</li>
+<li>Create a Unitary operator $U$ by exponentiating the Hermitian matrix i.e. $U = e^{-i \alpha H}$.</li>
+<li>Apply operator $U$ over eigen vectors of operator $H$. Does this operation preserve the norm of eigen vectors?</li>
+<li>Check that $U$ is unitary or not.</li>
+<li>What is the determinant of $U$?</li>
+</ol>
+<h3 id="reference">Reference</h3>
+<ol>
+<li><a href="https://www2.ph.ed.ac.uk/~ldeldebb/docs/QM2/chap4.pdf">Rotation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Spherical_harmonics">Spherical Harmonics</a></li>
+<li><a href="https://theory.physics.manchester.ac.uk/~xian/qm/chapter2.pdf">Angular Momentum</a></li>
+</ol>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../Algebra/code/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Algebra
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../Algebra-CompositeHamiltonian/code/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Algebra with Composite Hamiltonian
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.77e55a48.min.js"></script>
+      <script src="../assets/javascripts/bundle.9554a270.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

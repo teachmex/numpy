@@ -1,0 +1,759 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.2">
+    
+    
+      
+        <title>Meshgrid Introduction - Numpy Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.38780c08.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f72e892.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#meshgrid-meshgrid" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Numpy Tutorials" class="md-header-nav__button md-logo" aria-label="Numpy Tutorials">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Numpy Tutorials
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Meshgrid Introduction
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Numpy Tutorials" class="md-nav__button md-logo" aria-label="Numpy Tutorials">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Numpy Tutorials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Array-Intro/code/" class="md-nav__link">
+      Array Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Arange/code/" class="md-nav__link">
+      Arange
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Arange-Oscillation/code/" class="md-nav__link">
+      Arange demo with oscillation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Arange-Wave/code/" class="md-nav__link">
+      Arange demo with wave
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Arange-FourierSeries/code/" class="md-nav__link">
+      Arange demo with Fourier Series
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Meshgrid Introduction
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Meshgrid Introduction
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#meshgrid-meshgrid" class="md-nav__link">
+    Meshgrid : meshgrid
+  </a>
+  
+    <nav class="md-nav" aria-label="Meshgrid : meshgrid">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-simple-cost-function" class="md-nav__link">
+    Example 1:  Simple Cost Function:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-more-compex-cost-function" class="md-nav__link">
+    Example 2 : More Compex  Cost Function
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Meshgrid-SphericalHrmonics/code/" class="md-nav__link">
+      Meshgrid demo with Spherical Harmonics
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Meshgrid-OptimizationExample/code/" class="md-nav__link">
+      Meshgrid demo with Optimization
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Meshgrid-SimulationExample/code/" class="md-nav__link">
+      Meshgrid demo with Simulation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Algebra/code/" class="md-nav__link">
+      Algebra
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Algebra-QuantumMechanics/" class="md-nav__link">
+      Algebra with Quantum Mechanics
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Algebra-CompositeHamiltonian/code/" class="md-nav__link">
+      Algebra with Composite Hamiltonian
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Statistics/" class="md-nav__link">
+      Statistics
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Statistics-Probability/code/" class="md-nav__link">
+      Statistics with Probability
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Statistics-Smpling/code/" class="md-nav__link">
+      Statistics with sampling
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#meshgrid-meshgrid" class="md-nav__link">
+    Meshgrid : meshgrid
+  </a>
+  
+    <nav class="md-nav" aria-label="Meshgrid : meshgrid">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-simple-cost-function" class="md-nav__link">
+    Example 1:  Simple Cost Function:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-more-compex-cost-function" class="md-nav__link">
+    Example 2 : More Compex  Cost Function
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Meshgrid Introduction</h1>
+                
+                <h2 id="meshgrid-meshgrid">Meshgrid : <code>meshgrid</code></h2>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">numpy</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">np</span>
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">plt</span>
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">seaborn</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">sns</span>
+sns<span style="color: #555555">.</span>set()
+</code></pre></div>
+
+
+<p>How to create a grid and it's application to ploting cost functions:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>xs <span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #FF6600">10</span>)
+ys <span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #FF6600">10</span>)
+
+XG,YG <span style="color: #555555">=</span> np<span style="color: #555555">.</span>meshgrid(xs,ys)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>xs
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>ys
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>XG
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([[0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+       [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+       [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+       [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+       [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+       [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+       [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+       [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+       [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+       [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]])
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>YG
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+       [2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+       [3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+       [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+       [5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
+       [6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
+       [7, 7, 7, 7, 7, 7, 7, 7, 7, 7],
+       [8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+       [9, 9, 9, 9, 9, 9, 9, 9, 9, 9]])
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">8</span>,<span style="color: #FF6600">8</span>])
+plt<span style="color: #555555">.</span>scatter(XG,YG)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>&lt;matplotlib.collections.PathCollection at 0x1bd1762eb00&gt;
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_8_1.png" /></p>
+<h4 id="example-1-simple-cost-function">Example 1:  Simple Cost Function:</h4>
+<p>$$Z = x^2 + y^2$$</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>ns <span style="color: #555555">=</span> <span style="color: #FF6600">10</span>
+xs <span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #555555">-</span><span style="color: #FF6600">3</span>,<span style="color: #FF6600">3</span>,<span style="color: #FF6600">1</span><span style="color: #555555">/</span>ns)
+ys <span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #555555">-</span><span style="color: #FF6600">3</span>,<span style="color: #FF6600">3</span>,<span style="color: #FF6600">1</span><span style="color: #555555">/</span>ns)
+
+XG,YG <span style="color: #555555">=</span> np<span style="color: #555555">.</span>meshgrid(xs, ys, sparse<span style="color: #555555">=</span><span style="color: #006699; font-weight: bold">True</span>)  
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>ZG <span style="color: #555555">=</span> XG<span style="color: #555555">**</span><span style="color: #FF6600">2</span> <span style="color: #555555">+</span> YG<span style="color: #555555">**</span><span style="color: #FF6600">2</span>
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>ZG
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([[18.  , 17.41, 16.84, ..., 16.29, 16.84, 17.41],
+       [17.41, 16.82, 16.25, ..., 15.7 , 16.25, 16.82],
+       [16.84, 16.25, 15.68, ..., 15.13, 15.68, 16.25],
+       ...,
+       [16.29, 15.7 , 15.13, ..., 14.58, 15.13, 15.7 ],
+       [16.84, 16.25, 15.68, ..., 15.13, 15.68, 16.25],
+       [17.41, 16.82, 16.25, ..., 15.7 , 16.25, 16.82]])
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">8</span>,<span style="color: #FF6600">6</span>])
+sns<span style="color: #555555">.</span>heatmap(ZG, annot <span style="color: #555555">=</span><span style="color: #006699; font-weight: bold">False</span>,cmap <span style="color: #555555">=</span><span style="color: #CC3300">&quot;YlGnBu&quot;</span>,linewidths<span style="color: #555555">=.</span><span style="color: #FF6600">2</span>)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1bd161a9b70&gt;
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_13_1.png" /></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">8</span>,<span style="color: #FF6600">6</span>])
+CS <span style="color: #555555">=</span> plt<span style="color: #555555">.</span>contour(xs,ys,ZG)
+plt<span style="color: #555555">.</span>clabel(CS)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>&lt;a list of 11 text.Text objects&gt;
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_14_1.png" /></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">matplotlib</span> <span style="color: #006699; font-weight: bold">import</span> cm
+<span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">mpl_toolkits.mplot3d</span> <span style="color: #006699; font-weight: bold">import</span> Axes3D
+
+fig <span style="color: #555555">=</span> plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">8</span>,<span style="color: #FF6600">6</span>])
+ax <span style="color: #555555">=</span> fig<span style="color: #555555">.</span>gca(projection<span style="color: #555555">=</span><span style="color: #CC3300">&#39;3d&#39;</span>)
+
+<span style="color: #0099FF; font-style: italic"># Plot the surface.</span>
+surf <span style="color: #555555">=</span> ax<span style="color: #555555">.</span>plot_surface(XG, YG, ZG,\
+                       cmap<span style="color: #555555">=</span>cm<span style="color: #555555">.</span>coolwarm,\
+                       linewidth<span style="color: #555555">=</span><span style="color: #FF6600">0</span>)
+
+
+plt<span style="color: #555555">.</span>show()
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_15_0.png" /></p>
+<h4 id="example-2-more-compex-cost-function">Example 2 : More Compex  Cost Function</h4>
+<p>$$\large{Z = \frac{sin(x^2+y^2).cos(x^2-y^2)}{x^2+y^2}}$$</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>ns <span style="color: #555555">=</span> <span style="color: #FF6600">10</span>
+xs <span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #555555">-</span><span style="color: #FF6600">3</span>,<span style="color: #FF6600">3</span>,<span style="color: #FF6600">1</span><span style="color: #555555">/</span>ns)
+ys <span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #555555">-</span><span style="color: #FF6600">3</span>,<span style="color: #FF6600">3</span>,<span style="color: #FF6600">1</span><span style="color: #555555">/</span>ns)
+
+XG, YG <span style="color: #555555">=</span> np<span style="color: #555555">.</span>meshgrid(xs, ys, sparse<span style="color: #555555">=</span><span style="color: #006699; font-weight: bold">True</span>)  
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>ZG <span style="color: #555555">=</span> np<span style="color: #555555">.</span>sin(XG<span style="color: #555555">**</span><span style="color: #FF6600">2</span> <span style="color: #555555">+</span> YG<span style="color: #555555">**</span><span style="color: #FF6600">2</span>)<span style="color: #555555">*</span>np<span style="color: #555555">.</span>cos(XG<span style="color: #555555">**</span><span style="color: #FF6600">2</span> <span style="color: #555555">-</span> YG<span style="color: #555555">**</span><span style="color: #FF6600">2</span>) <span style="color: #555555">/</span> (XG<span style="color: #555555">**</span><span style="color: #FF6600">2</span> <span style="color: #555555">+</span> YG<span style="color: #555555">**</span><span style="color: #FF6600">2</span>)
+</code></pre></div>
+
+
+<ul>
+<li>
+<ol>
+<li>Heat Map</li>
+</ol>
+</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">10</span>,<span style="color: #FF6600">8</span>])
+sns<span style="color: #555555">.</span>heatmap(ZG, annot <span style="color: #555555">=</span><span style="color: #006699; font-weight: bold">False</span>,cmap <span style="color: #555555">=</span><span style="color: #CC3300">&quot;YlGnBu&quot;</span>,linewidths<span style="color: #555555">=.</span><span style="color: #FF6600">2</span>)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1bd167c8cf8&gt;
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_21_1.png" /></p>
+<ul>
+<li>
+<ol>
+<li>Contor Plot</li>
+</ol>
+</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">10</span>,<span style="color: #FF6600">8</span>])
+CS <span style="color: #555555">=</span> plt<span style="color: #555555">.</span>contour(xs,ys,ZG)
+plt<span style="color: #555555">.</span>clabel(CS)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>&lt;a list of 36 text.Text objects&gt;
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_23_1.png" /></p>
+<ul>
+<li>
+<ol>
+<li>3D plot</li>
+</ol>
+</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">matplotlib</span> <span style="color: #006699; font-weight: bold">import</span> cm
+<span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">mpl_toolkits.mplot3d</span> <span style="color: #006699; font-weight: bold">import</span> Axes3D
+fig <span style="color: #555555">=</span> plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">18</span>,<span style="color: #FF6600">10</span>])
+ax <span style="color: #555555">=</span> fig<span style="color: #555555">.</span>gca(projection<span style="color: #555555">=</span><span style="color: #CC3300">&#39;3d&#39;</span>)
+
+<span style="color: #0099FF; font-style: italic"># Plot the surface.</span>
+surf <span style="color: #555555">=</span> ax<span style="color: #555555">.</span>plot_surface(XG, YG, ZG,\
+                       cmap<span style="color: #555555">=</span>cm<span style="color: #555555">.</span>coolwarm,\
+                       linewidth<span style="color: #555555">=</span><span style="color: #FF6600">0</span>)
+
+
+plt<span style="color: #555555">.</span>show()
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_25_0.png" /></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../Arange-FourierSeries/code/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Arange demo with Fourier Series
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../Meshgrid-SphericalHrmonics/code/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Meshgrid demo with Spherical Harmonics
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.77e55a48.min.js"></script>
+      <script src="../../assets/javascripts/bundle.9554a270.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

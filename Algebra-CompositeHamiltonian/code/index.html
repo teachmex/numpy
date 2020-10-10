@@ -1,0 +1,923 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.2">
+    
+    
+      
+        <title>Algebra with Composite Hamiltonian - Numpy Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.38780c08.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f72e892.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#algebra-composite-hamiltonian-and-time-evolution" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Numpy Tutorials" class="md-header-nav__button md-logo" aria-label="Numpy Tutorials">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Numpy Tutorials
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Algebra with Composite Hamiltonian
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Numpy Tutorials" class="md-nav__button md-logo" aria-label="Numpy Tutorials">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Numpy Tutorials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Array-Intro/code/" class="md-nav__link">
+      Array Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Arange/code/" class="md-nav__link">
+      Arange
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Arange-Oscillation/code/" class="md-nav__link">
+      Arange demo with oscillation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Arange-Wave/code/" class="md-nav__link">
+      Arange demo with wave
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Arange-FourierSeries/code/" class="md-nav__link">
+      Arange demo with Fourier Series
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Meshgrid/code/" class="md-nav__link">
+      Meshgrid Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Meshgrid-SphericalHrmonics/code/" class="md-nav__link">
+      Meshgrid demo with Spherical Harmonics
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Meshgrid-OptimizationExample/code/" class="md-nav__link">
+      Meshgrid demo with Optimization
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Meshgrid-SimulationExample/code/" class="md-nav__link">
+      Meshgrid demo with Simulation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Algebra/code/" class="md-nav__link">
+      Algebra
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Algebra-QuantumMechanics/" class="md-nav__link">
+      Algebra with Quantum Mechanics
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Algebra with Composite Hamiltonian
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Algebra with Composite Hamiltonian
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#algebra-composite-hamiltonian-and-time-evolution" class="md-nav__link">
+    Algebra: Composite-Hamiltonian and Time Evolution
+  </a>
+  
+    <nav class="md-nav" aria-label="Algebra: Composite-Hamiltonian and Time Evolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-single-qubit-system" class="md-nav__link">
+    A . Single qubit System
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-constructing-composite-hamiltonians" class="md-nav__link">
+    B. Constructing composite Hamiltonians
+  </a>
+  
+    <nav class="md-nav" aria-label="B. Constructing composite Hamiltonians">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-two-coupled-qubits" class="md-nav__link">
+    1. Two coupled qubits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-three-coupled-qubit" class="md-nav__link">
+    2. Three Coupled Qubit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-time-evolution-with-composite-hamiltonian" class="md-nav__link">
+    C. Time Evolution with composite Hamiltonian
+  </a>
+  
+    <nav class="md-nav" aria-label="C. Time Evolution with composite Hamiltonian">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-generate-a-initial-state-vector" class="md-nav__link">
+    How to generate a initial state vector?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Statistics/" class="md-nav__link">
+      Statistics
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Statistics-Probability/code/" class="md-nav__link">
+      Statistics with Probability
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Statistics-Smpling/code/" class="md-nav__link">
+      Statistics with sampling
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#algebra-composite-hamiltonian-and-time-evolution" class="md-nav__link">
+    Algebra: Composite-Hamiltonian and Time Evolution
+  </a>
+  
+    <nav class="md-nav" aria-label="Algebra: Composite-Hamiltonian and Time Evolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-single-qubit-system" class="md-nav__link">
+    A . Single qubit System
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-constructing-composite-hamiltonians" class="md-nav__link">
+    B. Constructing composite Hamiltonians
+  </a>
+  
+    <nav class="md-nav" aria-label="B. Constructing composite Hamiltonians">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-two-coupled-qubits" class="md-nav__link">
+    1. Two coupled qubits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-three-coupled-qubit" class="md-nav__link">
+    2. Three Coupled Qubit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-time-evolution-with-composite-hamiltonian" class="md-nav__link">
+    C. Time Evolution with composite Hamiltonian
+  </a>
+  
+    <nav class="md-nav" aria-label="C. Time Evolution with composite Hamiltonian">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-generate-a-initial-state-vector" class="md-nav__link">
+    How to generate a initial state vector?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Algebra with Composite Hamiltonian</h1>
+                
+                <h2 id="algebra-composite-hamiltonian-and-time-evolution">Algebra: Composite-Hamiltonian and Time Evolution</h2>
+<ol>
+<li>https://numpy.org/doc/stable/reference/routines.linalg.html</li>
+<li>http://qutip.org/docs/latest/guide/dynamics/dynamics-master.html</li>
+</ol>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">numpy</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">np</span>
+<span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">qutip</span> <span style="color: #006699; font-weight: bold">import</span> <span style="color: #555555">*</span>
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">seaborn</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">sns</span>
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">plt</span>
+<span style="color: #555555">%</span>matplotlib inline
+sns<span style="color: #555555">.</span>set()
+</code></pre></div>
+
+
+<p>Given a Hamiltonian, we can calculate the unitary (non-dissipative) time-evolution of an arbitrary state vector |ψ0⟩ (psi0) using the QuTiP function <code>qutip.sesolve</code>. It evolves the state vector and evaluates the expectation values for a set of operators expt_ops at the points in time in the list times, using an ordinary differential equation solver. </p>
+<p>Scrodinger Equation: $$i\hbar\frac{d}{dt}\left|\psi\right&gt; = H \left|\psi\right&gt;$$</p>
+<p>Time evolution: <img src="https://miro.medium.com/max/1016/1*bupc_zDBvvA0jWG0GTejng@2x.png" width=200 height=200> </img></p>
+<h3 id="a-single-qubit-system">A . Single qubit System</h3>
+<ul>
+<li>
+<ol>
+<li>Consider a single qubit hamiltonian constructed by implementing pauli x operator: 
+$$H = 2 \pi \sigma_x$$</li>
+</ol>
+</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #0099FF; font-style: italic"># single qubit hamiltonian</span>
+H <span style="color: #555555">=</span>  <span style="color: #FF6600">2.0</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi <span style="color: #555555">*</span> sigmax()
+H
+</code></pre></div>
+
+
+<p>Quantum object: dims = [[2], [2]], shape = (2, 2), type = oper, isherm = True\begin{equation<em>}\left(\begin{array}{</em>{11}c}0.0 &amp; 6.283\6.283 &amp; 0.0\\end{array}\right)\end{equation*}</p>
+<ul>
+<li>
+<ol>
+<li>Create  the initial state of the system</li>
+</ol>
+</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #0099FF; font-style: italic">#initial state of the single qubit system</span>
+<span style="color: #0099FF; font-style: italic">#psi0 = basis(2,0)</span>
+psi0 <span style="color: #555555">=</span> basis(<span style="color: #FF6600">2</span>,<span style="color: #FF6600">1</span>)
+<span style="color: #0099FF; font-style: italic">#psi0 = (1/np.sqrt(2))*basis(2,0)+ (1/np.sqrt(2))*basis(2,1)</span>
+psi0
+</code></pre></div>
+
+
+<p>Quantum object: dims = [[2], [1]], shape = (2, 1), type = ket\begin{equation<em>}\left(\begin{array}{</em>{11}c}0.0\1.0\\end{array}\right)\end{equation*}</p>
+<ul>
+<li>
+<ol>
+<li>Create time array to conduct measurement time points during the evolution</li>
+</ol>
+</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>times <span style="color: #555555">=</span> np<span style="color: #555555">.</span>linspace(<span style="color: #FF6600">0.0</span>, <span style="color: #FF6600">10.0</span>, <span style="color: #FF6600">20</span>)
+times
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([ 0.        ,  0.52631579,  1.05263158,  1.57894737,  2.10526316,
+        2.63157895,  3.15789474,  3.68421053,  4.21052632,  4.73684211,
+        5.26315789,  5.78947368,  6.31578947,  6.84210526,  7.36842105,
+        7.89473684,  8.42105263,  8.94736842,  9.47368421, 10.        ])
+</code></pre></div>
+
+
+<ul>
+<li>
+<ol>
+<li>Simulate the time evolution by implementing <code>sesolve</code> function by supplying hamiltonian <code>H</code>, initial state <code>psi0</code>, time array <code>times</code> and list of operators <code>[sigmaz(), sigmay()]</code> representing what you want to measure as expectation value of.</li>
+</ol>
+</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>result <span style="color: #555555">=</span> sesolve(H, psi0, times, [sigmaz(), sigmay()])
+</code></pre></div>
+
+
+<ul>
+<li>
+<ol>
+<li>Explore the result</li>
+</ol>
+</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>result
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>Result object with sesolve data.
+--------------------------------
+expect = True
+num_expect = 2, num_collapse = 0
+</code></pre></div>
+
+
+<ul>
+<li>
+<ol>
+<li>Where are the expectation value of the implemented operator for measurement during time evolution?</li>
+</ol>
+</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>result<span style="color: #555555">.</span>expect
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>[array([-1.        , -0.94581561, -0.78913418, -0.54693623, -0.24546751,
+         0.08260204,  0.40171988,  0.67730341,  0.87948895,  0.9863673 ,
+         0.98635446,  0.87945165,  0.67724451,  0.4016443 ,  0.08252413,
+        -0.24554292, -0.54700067, -0.78917951, -0.94583863, -1.        ]),
+ array([ 0.00000000e+00,  3.24704211e-01,  6.14220851e-01,  8.37174272e-01,
+         9.69404818e-01,  9.96582612e-01,  9.15762600e-01,  7.35703806e-01,
+         4.75919309e-01,  1.64558631e-01, -1.64635573e-01, -4.75988221e-01,
+        -7.35758027e-01, -9.15795752e-01, -9.96589067e-01, -9.69385719e-01,
+        -8.37132169e-01, -6.14162600e-01, -3.24637165e-01,  7.13395936e-05])]
+</code></pre></div>
+
+
+<ul>
+<li>7 Plot the time evolution of the expection values of the implemented operators</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">plt</span>
+
+plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">20</span>,<span style="color: #FF6600">4</span>])
+plt<span style="color: #555555">.</span>plot(result<span style="color: #555555">.</span>times, result<span style="color: #555555">.</span>expect[<span style="color: #FF6600">0</span>])
+plt<span style="color: #555555">.</span>plot(result<span style="color: #555555">.</span>times, result<span style="color: #555555">.</span>expect[<span style="color: #FF6600">1</span>])
+plt<span style="color: #555555">.</span>xlabel(<span style="color: #CC3300">&#39;Time&#39;</span>)
+plt<span style="color: #555555">.</span>ylabel(<span style="color: #CC3300">&#39;Expectation values&#39;</span>)
+plt<span style="color: #555555">.</span>legend((<span style="color: #CC3300">&quot;sigmaz&quot;</span>, <span style="color: #CC3300">&quot;sigmay&quot;</span>))
+plt<span style="color: #555555">.</span>show()
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_19_0.png" /></p>
+<p>Lets repeat the same steps for multi-qubit system. Before that, we need to construct the composite hamiltonian representing the quantum mechanical system.</p>
+<h3 id="b-constructing-composite-hamiltonians">B. Constructing composite Hamiltonians</h3>
+<h4 id="1-two-coupled-qubits">1. Two coupled qubits</h4>
+<p>Consider a Hamiltonial of a 2 qubits system representated by composite hamiltonian shwn below. The first term represents the contribution of second qubit Z spin operator (sigmaz()) while first qubit remains inactive(identity); the second term represents the contribution of first qubit spin operator while second qubit remains inactive(identity); the third represents the contribution of first and second qubit X spin operator.</p>
+<p>$H = 0.2(\sigma_z \otimes I) + 0.4(I \otimes \sigma_z) + \frac{1}{4} (\sigma_x \otimes \sigma_x)$</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>H2 <span style="color: #555555">=</span> <span style="color: #FF6600">0.2</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">*</span>tensor(sigmaz(), identity(<span style="color: #FF6600">2</span>)) \
+    <span style="color: #555555">+</span> <span style="color: #FF6600">0.4</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">*</span>tensor(identity(<span style="color: #FF6600">2</span>),sigmaz()) \
+    <span style="color: #555555">+</span> <span style="color: #FF6600">0.25</span> <span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">*</span>tensor(sigmax(), sigmax())
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>H2
+</code></pre></div>
+
+
+<p>Quantum object: dims = [[2, 2], [2, 2]], shape = (4, 4), type = oper, isherm = True\begin{equation<em>}\left(\begin{array}{</em>{11}c}1.885 &amp; 0.0 &amp; 0.0 &amp; 0.785\0.0 &amp; -0.628 &amp; 0.785 &amp; 0.0\0.0 &amp; 0.785 &amp; 0.628 &amp; 0.0\0.785 &amp; 0.0 &amp; 0.0 &amp; -1.885\\end{array}\right)\end{equation*}</p>
+<h4 id="2-three-coupled-qubit">2. Three Coupled Qubit</h4>
+<p>Consider a Hamiltonial of a 3 qubits system representated by composite hamiltonian shwn below. The first term represents the contribution of third qubit Z spin operator (sigmaz()) while rest of the qubits remains inactive(identity); the second term represents the contribution of second qubit spin operator while remaining qubits inactive and so on.</p>
+<p>$H = (\sigma_z \otimes I \otimes I) + (I \otimes \sigma_z \otimes I) + (I  \otimes I  \otimes \sigma_z ) +  1/2 (\sigma_x \otimes \sigma_x \otimes I) +  1/4 (  I  \otimes \sigma_x \otimes \sigma_x)$</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>H3 <span style="color: #555555">=</span> (tensor(sigmaz(), identity(<span style="color: #FF6600">2</span>), identity(<span style="color: #FF6600">2</span>)) <span style="color: #555555">+</span>
+     tensor(identity(<span style="color: #FF6600">2</span>), sigmaz(), identity(<span style="color: #FF6600">2</span>)) <span style="color: #555555">+</span>
+    tensor(identity(<span style="color: #FF6600">2</span>), identity(<span style="color: #FF6600">2</span>), sigmaz()) <span style="color: #555555">+</span>
+     <span style="color: #FF6600">0.5</span> <span style="color: #555555">*</span> tensor(sigmax(), sigmax(), identity(<span style="color: #FF6600">2</span>)) <span style="color: #555555">+</span>
+     <span style="color: #FF6600">0.25</span> <span style="color: #555555">*</span> tensor(identity(<span style="color: #FF6600">2</span>), sigmax(), sigmax())) 
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>H3
+</code></pre></div>
+
+
+<p>Quantum object: dims = [[2, 2, 2], [2, 2, 2]], shape = (8, 8), type = oper, isherm = True\begin{equation<em>}\left(\begin{array}{</em>{11}c}3.0 &amp; 0.0 &amp; 0.0 &amp; 0.250 &amp; 0.0 &amp; 0.0 &amp; 0.500 &amp; 0.0\0.0 &amp; 1.0 &amp; 0.250 &amp; 0.0 &amp; 0.0 &amp; 0.0 &amp; 0.0 &amp; 0.500\0.0 &amp; 0.250 &amp; 1.0 &amp; 0.0 &amp; 0.500 &amp; 0.0 &amp; 0.0 &amp; 0.0\0.250 &amp; 0.0 &amp; 0.0 &amp; -1.0 &amp; 0.0 &amp; 0.500 &amp; 0.0 &amp; 0.0\0.0 &amp; 0.0 &amp; 0.500 &amp; 0.0 &amp; 1.0 &amp; 0.0 &amp; 0.0 &amp; 0.250\0.0 &amp; 0.0 &amp; 0.0 &amp; 0.500 &amp; 0.0 &amp; -1.0 &amp; 0.250 &amp; 0.0\0.500 &amp; 0.0 &amp; 0.0 &amp; 0.0 &amp; 0.0 &amp; 0.250 &amp; -1.0 &amp; 0.0\0.0 &amp; 0.500 &amp; 0.0 &amp; 0.0 &amp; 0.250 &amp; 0.0 &amp; 0.0 &amp; -3.0\\end{array}\right)\end{equation*}</p>
+<h3 id="c-time-evolution-with-composite-hamiltonian">C. Time Evolution with composite Hamiltonian</h3>
+<h4 id="how-to-generate-a-initial-state-vector">How to generate a initial state vector?</h4>
+<p>This is 2 qubit quantum mechanical system, there are 4 basis states $|00 \rangle, |01 \rangle, |10 \rangle, |11 \rangle$ in 4 dimentional complex vector space. All operators in 2 qubit system should be 4 by 4 matrices while state vector need to be 4 element column ket(bra) vector.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>psi0 <span style="color: #555555">=</span> basis(<span style="color: #FF6600">4</span>, <span style="color: #FF6600">0</span>)
+psi0
+</code></pre></div>
+
+
+<p>Quantum object: dims = [[4], [1]], shape = (4, 1), type = ket\begin{equation<em>}\left(\begin{array}{</em>{11}c}1.0\0.0\0.0\0.0\\end{array}\right)\end{equation*}</p>
+<p><strong>Q: Could we start with random ket vector?</strong>
+- Answer: yes!</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #0099FF; font-style: italic"># Example 1</span>
+psi1 <span style="color: #555555">=</span> basis(<span style="color: #FF6600">4</span>, <span style="color: #FF6600">1</span>)
+psi1
+</code></pre></div>
+
+
+<p>Quantum object: dims = [[4], [1]], shape = (4, 1), type = ket\begin{equation<em>}\left(\begin{array}{</em>{11}c}0.0\1.0\0.0\0.0\\end{array}\right)\end{equation*}</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #0099FF; font-style: italic"># Example 2</span>
+psi2 <span style="color: #555555">=</span> (<span style="color: #FF6600">1</span><span style="color: #555555">/</span><span style="color: #FF6600">2</span>)<span style="color: #555555">*</span>basis(<span style="color: #FF6600">4</span>, <span style="color: #FF6600">0</span>) <span style="color: #555555">+</span> (<span style="color: #FF6600">1</span><span style="color: #555555">/</span><span style="color: #FF6600">2</span>)<span style="color: #555555">*</span>basis(<span style="color: #FF6600">4</span>,<span style="color: #FF6600">1</span>)  <span style="color: #555555">+</span> (<span style="color: #FF6600">1</span><span style="color: #555555">/</span><span style="color: #FF6600">2</span>)<span style="color: #555555">*</span>basis(<span style="color: #FF6600">4</span>,<span style="color: #FF6600">2</span>) <span style="color: #555555">+</span> (<span style="color: #FF6600">1</span><span style="color: #555555">/</span><span style="color: #FF6600">2</span>)<span style="color: #555555">*</span>basis(<span style="color: #FF6600">4</span>,<span style="color: #FF6600">3</span>) 
+psi2
+</code></pre></div>
+
+
+<p>Quantum object: dims = [[4], [1]], shape = (4, 1), type = ket\begin{equation<em>}\left(\begin{array}{</em>{11}c}0.500\0.500\0.500\0.500\\end{array}\right)\end{equation*}</p>
+<p>Lets perform the time evolution with two new operators for measurement (<code>m1-operator, m2-operator</code> defined below in code block) of size 4 by 4 (why? remember, measurement operator in 2 qubit system also need to be 4 by 4 matrices).</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #0099FF; font-style: italic"># time array</span>
+times <span style="color: #555555">=</span> np<span style="color: #555555">.</span>linspace(<span style="color: #FF6600">0.0</span>, <span style="color: #FF6600">10.0</span>, <span style="color: #FF6600">100</span>)
+
+<span style="color: #0099FF; font-style: italic"># measurement operator</span>
+m1_operator <span style="color: #555555">=</span> tensor(identity(<span style="color: #FF6600">2</span>), sigmaz())
+m2_operator <span style="color: #555555">=</span> tensor(sigmax(), sigmay())
+
+<span style="color: #0099FF; font-style: italic"># time evolution of state psi2 with hamiltonian H2 to calculate expectation </span>
+<span style="color: #0099FF; font-style: italic"># value of m-operator and m-2 operator at 100 different time points</span>
+result <span style="color: #555555">=</span> sesolve(H2, psi2, times, [m1_operator,m2_operator])
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #0099FF; font-style: italic"># array holding multiple subarray of results</span>
+result
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>Result object with sesolve data.
+--------------------------------
+expect = True
+num_expect = 2, num_collapse = 0
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #0099FF; font-style: italic"># expectation value of m1 and m2 operator at 20 different time point</span>
+result<span style="color: #555555">.</span>expect
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>[array([0.        , 0.01990965, 0.07693353, 0.16338415, 0.26780409,
+        0.37676296, 0.47694252, 0.55716702, 0.6100466 , 0.63296734,
+        0.62827241, 0.60261422, 0.56559699, 0.52794726, 0.49952837,
+        0.48753968, 0.49520857, 0.52119896, 0.55983745, 0.60211928,
+        0.63732295, 0.65495828, 0.64671514, 0.60807788, 0.5393257 ,
+        0.44574105, 0.33698063, 0.22570382, 0.12567867, 0.04967351,
+        0.00747984, 0.00439134, 0.04038908, 0.11016689, 0.20399138,
+        0.30925384, 0.41245688, 0.50130765, 0.56657378, 0.60339885,
+        0.61186652, 0.5967288 , 0.56635478, 0.53108657, 0.50128824,
+        0.48542398, 0.48849536, 0.51110591, 0.54931383, 0.59529942,
+        0.6387351 , 0.66862566, 0.6753056 , 0.65225216, 0.59740204,
+        0.51374158, 0.40906153, 0.29490684, 0.1848873 , 0.09262206,
+        0.0296538 , 0.00367407, 0.01735098, 0.06795116, 0.14781638,
+        0.24561427, 0.34815462, 0.44247004, 0.51781734, 0.56727093,
+        0.58864968, 0.5846312 , 0.56204482, 0.53047246, 0.50040267,
+        0.4812572 , 0.47963015, 0.49804245, 0.53442637, 0.58243045,
+        0.63249529, 0.67351942, 0.69483308, 0.68814418, 0.64912366,
+        0.57835608, 0.48148692, 0.36853161, 0.25245172, 0.1472267 ,
+        0.06573458, 0.01778779, 0.00864563, 0.0382465 , 0.10128381,
+        0.18811041, 0.28631891, 0.38273458, 0.46548989, 0.5258384 ]),
+ array([ 0.        ,  0.24807532,  0.46250991,  0.61497901,  0.68691127,
+         0.67231624,  0.57853938,  0.42482815,  0.23895805,  0.05249073,
+        -0.10453705, -0.20860165, -0.24652328, -0.21750119, -0.13301915,
+        -0.01464653,  0.10988487,  0.21165762,  0.26575066,  0.25574337,
+         0.17677289,  0.03661915, -0.14537537, -0.34137929, -0.51963064,
+        -0.64971981, -0.70771236, -0.6802516 , -0.56694875, -0.38065373,
+        -0.14555266,  0.10659923,  0.34148914,  0.5276749 ,  0.64153252,
+         0.67090663,  0.61686403,  0.493268  ,  0.324255  ,  0.14004515,
+        -0.02820489, -0.15363968, -0.21815444, -0.21531163, -0.15124055,
+        -0.04337637,  0.08274019,  0.19805446,  0.27519744,  0.29340795,
+         0.24233764,  0.12408733, -0.0468794 , -0.24594165, -0.44228493,
+        -0.60396499, -0.7032264 , -0.72118534, -0.65108967, -0.49960562,
+        -0.28590896, -0.03872439,  0.20820059,  0.42144006,  0.57316865,
+         0.64550295,  0.63319037,  0.54420723,  0.39817726,  0.22288599,
+         0.04948365, -0.09281286, -0.18162714, -0.20511603, -0.1638308 ,
+        -0.0704398 ,  0.05263326,  0.17724956,  0.27458447,  0.32028959,
+         0.29890787,  0.20678744,  0.05299223, -0.14195583, -0.34930263,
+        -0.53672363, -0.67364595, -0.7363421 , -0.71194204, -0.60068927,
+        -0.41605836, -0.18270779,  0.06739733,  0.30005268,  0.48423444,
+         0.5969749 ,  0.62688952,  0.5757772 ,  0.45803793,  0.29801709])]
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">plt</span>
+
+plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">20</span>,<span style="color: #FF6600">4</span>])
+plt<span style="color: #555555">.</span>plot(result<span style="color: #555555">.</span>times, result<span style="color: #555555">.</span>expect[<span style="color: #FF6600">0</span>])
+plt<span style="color: #555555">.</span>plot(result<span style="color: #555555">.</span>times, result<span style="color: #555555">.</span>expect[<span style="color: #FF6600">1</span>])
+plt<span style="color: #555555">.</span>xlabel(<span style="color: #CC3300">&#39;Time&#39;</span>)
+plt<span style="color: #555555">.</span>ylabel(<span style="color: #CC3300">&#39;Expectation values&#39;</span>)
+plt<span style="color: #555555">.</span>legend((<span style="color: #CC3300">&quot;m1-operator&quot;</span>, <span style="color: #CC3300">&quot;m2-operator&quot;</span>))
+plt<span style="color: #555555">.</span>show()
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_38_0.png" /></p>
+<h3 id="references">References</h3>
+<ol>
+<li><a href="https://physics.stackexchange.com/questions/292102/how-do-one-show-that-the-pauli-matrices-together-with-the-unit-matrix-form-a-bas">Pauli basis for any 2 by 2 matrices</a></li>
+</ol>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../Algebra-QuantumMechanics/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Algebra with Quantum Mechanics
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../Statistics/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Statistics
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.77e55a48.min.js"></script>
+      <script src="../../assets/javascripts/bundle.9554a270.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,803 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.2">
+    
+    
+      
+        <title>Arange - Numpy Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.38780c08.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f72e892.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#arange-arange" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Numpy Tutorials" class="md-header-nav__button md-logo" aria-label="Numpy Tutorials">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Numpy Tutorials
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Arange
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Numpy Tutorials" class="md-nav__button md-logo" aria-label="Numpy Tutorials">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Numpy Tutorials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Array-Intro/code/" class="md-nav__link">
+      Array Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Arange
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Arange
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arange-arange" class="md-nav__link">
+    Arange : arange
+  </a>
+  
+    <nav class="md-nav" aria-label="Arange : arange">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#application-plot-multi-functions" class="md-nav__link">
+    Application : Plot multi-functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gaussian-distribution" class="md-nav__link">
+    Gaussian Distribution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-comprehension-with-arange" class="md-nav__link">
+    List Comprehension with arange
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Arange-Oscillation/code/" class="md-nav__link">
+      Arange demo with oscillation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Arange-Wave/code/" class="md-nav__link">
+      Arange demo with wave
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Arange-FourierSeries/code/" class="md-nav__link">
+      Arange demo with Fourier Series
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Meshgrid/code/" class="md-nav__link">
+      Meshgrid Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Meshgrid-SphericalHrmonics/code/" class="md-nav__link">
+      Meshgrid demo with Spherical Harmonics
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Meshgrid-OptimizationExample/code/" class="md-nav__link">
+      Meshgrid demo with Optimization
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Meshgrid-SimulationExample/code/" class="md-nav__link">
+      Meshgrid demo with Simulation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Algebra/code/" class="md-nav__link">
+      Algebra
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Algebra-QuantumMechanics/" class="md-nav__link">
+      Algebra with Quantum Mechanics
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Algebra-CompositeHamiltonian/code/" class="md-nav__link">
+      Algebra with Composite Hamiltonian
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Statistics/" class="md-nav__link">
+      Statistics
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Statistics-Probability/code/" class="md-nav__link">
+      Statistics with Probability
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Statistics-Smpling/code/" class="md-nav__link">
+      Statistics with sampling
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arange-arange" class="md-nav__link">
+    Arange : arange
+  </a>
+  
+    <nav class="md-nav" aria-label="Arange : arange">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#application-plot-multi-functions" class="md-nav__link">
+    Application : Plot multi-functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gaussian-distribution" class="md-nav__link">
+    Gaussian Distribution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-comprehension-with-arange" class="md-nav__link">
+    List Comprehension with arange
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Arange</h1>
+                
+                <h2 id="arange-arange">Arange : <code>arange</code></h2>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">numpy</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">np</span>
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>X <span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #FF6600">10</span>)
+X
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>X<span style="color: #555555">-</span><span style="color: #FF6600">1.0</span>
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([-1.,  0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.])
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #FF6600">10</span><span style="color: #555555">+</span>X
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([10, 11, 12, 13, 14, 15, 16, 17, 18, 19])
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>np<span style="color: #555555">.</span>arange(<span style="color: #FF6600">3</span>,<span style="color: #FF6600">12</span>)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([ 3,  4,  5,  6,  7,  8,  9, 10, 11])
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>np<span style="color: #555555">.</span>arange(<span style="color: #FF6600">1</span>,<span style="color: #FF6600">10</span>,<span style="color: #FF6600">2</span>)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([1, 3, 5, 7, 9])
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>np<span style="color: #555555">.</span>arange(<span style="color: #FF6600">10</span>,<span style="color: #FF6600">11</span>,<span style="color: #FF6600">0.01</span>)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([10.  , 10.01, 10.02, 10.03, 10.04, 10.05, 10.06, 10.07, 10.08,
+       10.09, 10.1 , 10.11, 10.12, 10.13, 10.14, 10.15, 10.16, 10.17,
+       10.18, 10.19, 10.2 , 10.21, 10.22, 10.23, 10.24, 10.25, 10.26,
+       10.27, 10.28, 10.29, 10.3 , 10.31, 10.32, 10.33, 10.34, 10.35,
+       10.36, 10.37, 10.38, 10.39, 10.4 , 10.41, 10.42, 10.43, 10.44,
+       10.45, 10.46, 10.47, 10.48, 10.49, 10.5 , 10.51, 10.52, 10.53,
+       10.54, 10.55, 10.56, 10.57, 10.58, 10.59, 10.6 , 10.61, 10.62,
+       10.63, 10.64, 10.65, 10.66, 10.67, 10.68, 10.69, 10.7 , 10.71,
+       10.72, 10.73, 10.74, 10.75, 10.76, 10.77, 10.78, 10.79, 10.8 ,
+       10.81, 10.82, 10.83, 10.84, 10.85, 10.86, 10.87, 10.88, 10.89,
+       10.9 , 10.91, 10.92, 10.93, 10.94, 10.95, 10.96, 10.97, 10.98,
+       10.99])
+</code></pre></div>
+
+
+<h4 id="application-plot-multi-functions">Application : Plot multi-functions</h4>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">plt</span>
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">seaborn</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">sns</span>
+<span style="color: #555555">%</span>matplotlib inline
+sns<span style="color: #555555">.</span>set()
+</code></pre></div>
+
+
+<h4 id="gaussian-distribution">Gaussian Distribution</h4>
+<p><img alt="img" src="https://het.as.utexas.edu/HET/Software/Numpy/_images/math/2f8a02ce155191ed5a4ea8d776aa15fcaef26e1f.png" /></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #336666">len</span>(np<span style="color: #555555">.</span>arange(<span style="color: #555555">-</span><span style="color: #FF6600">4</span>,<span style="color: #FF6600">4</span>,<span style="color: #FF6600">0.01</span>))
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>800
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>xs <span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #555555">-</span><span style="color: #FF6600">4</span>,<span style="color: #FF6600">4</span>,<span style="color: #FF6600">0.01</span>)
+
+plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">10</span>,<span style="color: #FF6600">2</span>])
+
+sigma <span style="color: #555555">=</span><span style="color: #FF6600">1.0</span>
+mu <span style="color: #555555">=</span> <span style="color: #FF6600">0.0</span>
+
+N <span style="color: #555555">=</span> <span style="color: #FF6600">1</span><span style="color: #555555">/</span>np<span style="color: #555555">.</span>sqrt(<span style="color: #FF6600">2</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">*</span>sigma<span style="color: #555555">**</span><span style="color: #FF6600">2</span>)
+fx <span style="color: #555555">=</span> N<span style="color: #555555">*</span>np<span style="color: #555555">.</span>exp(<span style="color: #555555">-</span>(xs<span style="color: #555555">-</span>mu)<span style="color: #555555">**</span><span style="color: #FF6600">2</span><span style="color: #555555">/</span>(<span style="color: #FF6600">2</span><span style="color: #555555">*</span>sigma<span style="color: #555555">**</span><span style="color: #FF6600">2</span>))
+
+plt<span style="color: #555555">.</span>plot(xs,fx)
+plt<span style="color: #555555">.</span>xlabel(<span style="color: #CC3300">&#39;x&#39;</span>,fontsize <span style="color: #555555">=</span><span style="color: #FF6600">20</span>)
+plt<span style="color: #555555">.</span>ylabel(<span style="color: #CC3300">&#39;probability&#39;</span>)
+plt<span style="color: #555555">.</span>show()
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_12_0.png" /></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>xs <span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #555555">-</span><span style="color: #FF6600">10</span>,<span style="color: #FF6600">10</span>,<span style="color: #FF6600">0.01</span>)
+plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">10</span>,<span style="color: #FF6600">6</span>])
+
+sigmas <span style="color: #555555">=</span> [ <span style="color: #FF6600">1.0</span>,<span style="color: #FF6600">1.5</span>,<span style="color: #FF6600">2.0</span>,<span style="color: #FF6600">2.5</span>,<span style="color: #FF6600">3.0</span>,<span style="color: #FF6600">3.5</span>,<span style="color: #FF6600">4.0</span>]
+mus <span style="color: #555555">=</span> [<span style="color: #FF6600">0.0</span>,<span style="color: #FF6600">1.0</span>,<span style="color: #FF6600">1.5</span>,<span style="color: #FF6600">2.0</span>,<span style="color: #FF6600">2.5</span>,<span style="color: #FF6600">3.0</span>,<span style="color: #FF6600">3.5</span>]
+
+<span style="color: #006699; font-weight: bold">for</span> s,m <span style="color: #000000; font-weight: bold">in</span> <span style="color: #336666">zip</span>(sigmas,mus):
+
+    N <span style="color: #555555">=</span> <span style="color: #FF6600">1</span><span style="color: #555555">/</span>np<span style="color: #555555">.</span>sqrt(<span style="color: #FF6600">2</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">*</span>s<span style="color: #555555">**</span><span style="color: #FF6600">2</span>)
+    fx <span style="color: #555555">=</span> N<span style="color: #555555">*</span>np<span style="color: #555555">.</span>exp(<span style="color: #555555">-</span>(xs<span style="color: #555555">-</span>m)<span style="color: #555555">**</span><span style="color: #FF6600">2</span><span style="color: #555555">/</span>(<span style="color: #FF6600">2</span><span style="color: #555555">*</span>s<span style="color: #555555">**</span><span style="color: #FF6600">2</span>))
+    plt<span style="color: #555555">.</span>plot(xs,fx, label <span style="color: #555555">=</span> <span style="color: #CC3300">&quot;mu=&quot;</span><span style="color: #555555">+</span><span style="color: #336666">str</span>(m)<span style="color: #555555">+</span><span style="color: #CC3300">&quot;,sigma=&quot;</span><span style="color: #555555">+</span><span style="color: #336666">str</span>(s))
+
+plt<span style="color: #555555">.</span>xlabel(<span style="color: #CC3300">&#39;x&#39;</span>)
+plt<span style="color: #555555">.</span>ylabel(<span style="color: #CC3300">&#39;probability&#39;</span>)
+plt<span style="color: #555555">.</span>show()
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_13_0.png" /></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>xs <span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #555555">-</span><span style="color: #FF6600">10</span>,<span style="color: #FF6600">10</span>,<span style="color: #FF6600">0.01</span>)
+plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">14</span>,<span style="color: #FF6600">16</span>])
+
+sigmas <span style="color: #555555">=</span> [ <span style="color: #FF6600">1.0</span>,<span style="color: #FF6600">1.5</span>,<span style="color: #FF6600">2.0</span>,<span style="color: #FF6600">2.5</span>,<span style="color: #FF6600">3.0</span>,<span style="color: #FF6600">3.5</span>,<span style="color: #FF6600">4.0</span>]
+mus <span style="color: #555555">=</span> [<span style="color: #FF6600">0.0</span>,<span style="color: #FF6600">1.0</span>,<span style="color: #FF6600">1.5</span>,<span style="color: #FF6600">2.0</span>,<span style="color: #FF6600">2.5</span>,<span style="color: #FF6600">3.0</span>,<span style="color: #FF6600">3.5</span>]
+
+k <span style="color: #555555">=</span> <span style="color: #FF6600">1</span>
+<span style="color: #006699; font-weight: bold">for</span> s,m <span style="color: #000000; font-weight: bold">in</span> <span style="color: #336666">zip</span>(sigmas,mus):
+    plt<span style="color: #555555">.</span>subplot(<span style="color: #FF6600">4</span>,<span style="color: #FF6600">2</span>,k)
+    N <span style="color: #555555">=</span> <span style="color: #FF6600">1</span><span style="color: #555555">/</span>np<span style="color: #555555">.</span>sqrt(<span style="color: #FF6600">2</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">*</span>s<span style="color: #555555">**</span><span style="color: #FF6600">2</span>)
+    fx <span style="color: #555555">=</span> N<span style="color: #555555">*</span>np<span style="color: #555555">.</span>exp(<span style="color: #555555">-</span>(xs<span style="color: #555555">-</span>m)<span style="color: #555555">**</span><span style="color: #FF6600">2</span><span style="color: #555555">/</span>(<span style="color: #FF6600">2</span><span style="color: #555555">*</span>s<span style="color: #555555">**</span><span style="color: #FF6600">2</span>))
+
+    plt<span style="color: #555555">.</span>plot(xs,fx, label <span style="color: #555555">=</span> <span style="color: #CC3300">&quot;mu=&quot;</span><span style="color: #555555">+</span><span style="color: #336666">str</span>(m)<span style="color: #555555">+</span><span style="color: #CC3300">&quot;,sigma=&quot;</span><span style="color: #555555">+</span><span style="color: #336666">str</span>(s))
+    plt<span style="color: #555555">.</span>xlabel(<span style="color: #CC3300">&#39;x&#39;</span>,fontsize <span style="color: #555555">=</span><span style="color: #FF6600">20</span>)
+    plt<span style="color: #555555">.</span>ylabel(<span style="color: #CC3300">&#39;prabability&#39;</span>)
+    plt<span style="color: #555555">.</span>legend()
+    k <span style="color: #555555">=</span> k<span style="color: #555555">+</span><span style="color: #FF6600">1</span>
+plt<span style="color: #555555">.</span>show()
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_14_0.png" /></p>
+<h4 id="list-comprehension-with-arange">List Comprehension with <code>arange</code></h4>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>xs <span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">3.14</span>,<span style="color: #FF6600">0.1</span>)
+np<span style="color: #555555">.</span>sin(xs)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([0.        , 0.09983342, 0.19866933, 0.29552021, 0.38941834,
+       0.47942554, 0.56464247, 0.64421769, 0.71735609, 0.78332691,
+       0.84147098, 0.89120736, 0.93203909, 0.96355819, 0.98544973,
+       0.99749499, 0.9995736 , 0.99166481, 0.97384763, 0.94630009,
+       0.90929743, 0.86320937, 0.8084964 , 0.74570521, 0.67546318,
+       0.59847214, 0.51550137, 0.42737988, 0.33498815, 0.23924933,
+       0.14112001, 0.04158066])
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>np<span style="color: #555555">.</span>cos(xs)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([ 1.        ,  0.99500417,  0.98006658,  0.95533649,  0.92106099,
+        0.87758256,  0.82533561,  0.76484219,  0.69670671,  0.62160997,
+        0.54030231,  0.45359612,  0.36235775,  0.26749883,  0.16996714,
+        0.0707372 , -0.02919952, -0.12884449, -0.22720209, -0.32328957,
+       -0.41614684, -0.5048461 , -0.58850112, -0.66627602, -0.73739372,
+       -0.80114362, -0.85688875, -0.90407214, -0.94222234, -0.97095817,
+       -0.9899925 , -0.99913515])
+</code></pre></div>
+
+
+<p><strong>Sum of sin(x)+cos(x)</strong></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>np<span style="color: #555555">.</span>sin(xs)<span style="color: #555555">+</span> np<span style="color: #555555">.</span>cos(xs)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([ 1.        ,  1.09483758,  1.17873591,  1.2508567 ,  1.31047934,
+        1.3570081 ,  1.38997809,  1.40905987,  1.4140628 ,  1.40493688,
+        1.38177329,  1.34480348,  1.29439684,  1.23105701,  1.15541687,
+        1.06823219,  0.97037408,  0.86282032,  0.74664554,  0.62301052,
+        0.49315059,  0.35836326,  0.21999529,  0.07942919, -0.06193053,
+       -0.20267147, -0.34138738, -0.47669226, -0.60723419, -0.73170884,
+       -0.84887249, -0.95755449])
+</code></pre></div>
+
+
+<p><strong>List including array for cos(x), cos(2x), cos(3x), cos(4x)</strong></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>[np<span style="color: #555555">.</span>cos(n<span style="color: #555555">*</span>xs) <span style="color: #006699; font-weight: bold">for</span> n <span style="color: #000000; font-weight: bold">in</span> <span style="color: #336666">range</span>(<span style="color: #FF6600">1</span>,<span style="color: #FF6600">5</span>)]
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>[array([ 1.        ,  0.99500417,  0.98006658,  0.95533649,  0.92106099,
+         0.87758256,  0.82533561,  0.76484219,  0.69670671,  0.62160997,
+         0.54030231,  0.45359612,  0.36235775,  0.26749883,  0.16996714,
+         0.0707372 , -0.02919952, -0.12884449, -0.22720209, -0.32328957,
+        -0.41614684, -0.5048461 , -0.58850112, -0.66627602, -0.73739372,
+        -0.80114362, -0.85688875, -0.90407214, -0.94222234, -0.97095817,
+        -0.9899925 , -0.99913515]),
+ array([ 1.        ,  0.98006658,  0.92106099,  0.82533561,  0.69670671,
+         0.54030231,  0.36235775,  0.16996714, -0.02919952, -0.22720209,
+        -0.41614684, -0.58850112, -0.73739372, -0.85688875, -0.94222234,
+        -0.9899925 , -0.99829478, -0.96679819, -0.89675842, -0.79096771,
+        -0.65364362, -0.49026082, -0.30733287, -0.11215253,  0.08749898,
+         0.28366219,  0.46851667,  0.63469288,  0.77556588,  0.88551952,
+         0.96017029,  0.9965421 ]),
+ array([ 1.        ,  0.95533649,  0.82533561,  0.62160997,  0.36235775,
+         0.0707372 , -0.22720209, -0.5048461 , -0.73739372, -0.90407214,
+        -0.9899925 , -0.98747977, -0.89675842, -0.7259323 , -0.49026082,
+        -0.2107958 ,  0.08749898,  0.37797774,  0.63469288,  0.83471278,
+         0.96017029,  0.99985864,  0.95023259,  0.8157251 ,  0.60835131,
+         0.34663532,  0.05395542, -0.24354415, -0.51928865, -0.74864665,
+        -0.91113026, -0.99222533]),
+ array([ 1.        ,  0.92106099,  0.69670671,  0.36235775, -0.02919952,
+        -0.41614684, -0.73739372, -0.94222234, -0.99829478, -0.89675842,
+        -0.65364362, -0.30733287,  0.08749898,  0.46851667,  0.77556588,
+         0.96017029,  0.99318492,  0.86939749,  0.60835131,  0.25125984,
+        -0.14550003, -0.51928865, -0.81109301, -0.97484362, -0.98468786,
+        -0.83907153, -0.56098426, -0.19432991,  0.20300486,  0.56828963,
+         0.84385396,  0.9861923 ])]
+</code></pre></div>
+
+
+<p><strong>Sum of cos(x)+cos(2x)+cos(3x)+cos(4x)</strong></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #336666">sum</span>([np<span style="color: #555555">.</span>cos(n<span style="color: #555555">*</span>xs) <span style="color: #006699; font-weight: bold">for</span> n <span style="color: #000000; font-weight: bold">in</span> <span style="color: #336666">range</span>(<span style="color: #FF6600">1</span>,<span style="color: #FF6600">5</span>)])
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([ 4.        ,  3.85146823,  3.4231699 ,  2.76463983,  1.95092594,
+        1.07247523,  0.22309756, -0.51225912, -1.0681813 , -1.40642268,
+       -1.51948065, -1.42971764, -1.18429539, -0.84680556, -0.48695014,
+       -0.16988081,  0.0531896 ,  0.15173255,  0.11908368, -0.02828465,
+       -0.2551202 , -0.51453694, -0.75669441, -0.93754707, -1.02623127,
+       -1.00991764, -0.89540092, -0.70725333, -0.48294025, -0.26579566,
+       -0.09709851, -0.00862608])
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../Array-Intro/code/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Array Introduction
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../Arange-Oscillation/code/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Arange demo with oscillation
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.77e55a48.min.js"></script>
+      <script src="../../assets/javascripts/bundle.9554a270.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
