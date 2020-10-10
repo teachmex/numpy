@@ -1,0 +1,58 @@
+
+site_name: Numpy Tutorials
+
+
+extra_javascript: 
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+markdown_extensions:
+    - mdx_math
+    
+
+
+theme:
+  name: 'material'
+  highlightjs: true
+  hljs_languages: [python]
+  include_homepage_in_sidebar: true
+  prev_next_buttons_location: bottom
+  navigation_depth: 4
+  titles_only: false
+  sticky_navigation: true
+  collapse_navigation: true
+ 
+
+  
+  
+markdown_extensions:
+  - codehilite:
+      linenums: false
+      guess_lang: false
+      use_pygments: true
+      noclasses: true
+      pygments_style: manni
+      
+
+
+nav:
+- Home: index.md
+- Array Introduction: Array-Intro/code.md
+- Arange : Arange/code.md
+- Arange demo with oscillation: Arange-Oscillation/code.md
+- Arange demo with wave: Arange-Wave/code.md
+- Arange demo with Fourier Series: Arange-FourierSeries/code.md
+- Meshgrid Introduction: Meshgrid/code.md
+- Meshgrid demo with Spherical Harmonics: Meshgrid-SphericalHrmonics/code.md
+- Meshgrid demo with Optimization: Meshgrid-OptimizationExample/code.md
+- Meshgrid demo with Simulation: Meshgrid-SimulationExample/code.md
+- Algebra: Algebra/code.md
+- Algebra with Quantum Mechanics: Algebra-QuantumMechanics.md
+- Algebra with Composite Hamiltonian: Algebra-CompositeHamiltonian/code.md
+- Statistics: Statistics.md
+- Statistics with Probability: Statistics-Probability/code.md
+- Statistics with sampling: Statistics-Smpling/code.md
+ 
+ 
+ 
+ 
+ 
