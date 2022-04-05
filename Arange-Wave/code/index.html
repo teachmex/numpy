@@ -8,8 +8,8 @@
       
       
       
-      <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.2">
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.8">
     
     
       
@@ -17,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.38780c08.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.644de097.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f72e892.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -28,15 +28,17 @@
     
       
         
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+
     
     
   </head>
@@ -48,8 +50,9 @@
     
     
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
-      
   
+    
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -65,48 +68,58 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="../.." title="Numpy Tutorials" class="md-header-nav__button md-logo" aria-label="Numpy Tutorials">
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Numpy Tutorials" class="md-header__button md-logo" aria-label="Numpy Tutorials" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
+    <label class="md-header__button md-icon" for="__drawer">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
-      
-        <div class="md-header-nav__ellipsis">
-          <span class="md-header-nav__topic md-ellipsis">
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             Numpy Tutorials
           </span>
-          <span class="md-header-nav__topic md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
               Arange demo with wave
             
           </span>
         </div>
-      
+      </div>
     </div>
     
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -123,26 +136,33 @@
     
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
         
+          
+        
       
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Numpy Tutorials" class="md-nav__button md-logo" aria-label="Numpy Tutorials">
+    <a href="../.." title="Numpy Tutorials" class="md-nav__button md-logo" aria-label="Numpy Tutorials" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
     Numpy Tutorials
@@ -154,48 +174,15 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../.." class="md-nav__link">
-      Home
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../Array-Intro/code/" class="md-nav__link">
-      Array Introduction
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../Arange/code/" class="md-nav__link">
-      Arange
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../Arange-Oscillation/code/" class="md-nav__link">
-      Arange demo with oscillation
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
 
     
       
@@ -203,24 +190,74 @@
       
 
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Array-Intro/code/" class="md-nav__link">
+        Array Introduction
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Arange demo with wave
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
-      Arange demo with wave
-    </a>
     
       
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Arange/code/" class="md-nav__link">
+        Arange
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Arange-Oscillation/code/" class="md-nav__link">
+        Arange demo with oscillation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Arange demo with wave
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Arange demo with wave
+      </a>
+      
+        
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
   
@@ -228,7 +265,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#wave-propagation" class="md-nav__link">
@@ -281,140 +318,174 @@
     </ul>
   
 </nav>
-    
-  </li>
+      
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../../Arange-FourierSeries/code/" class="md-nav__link">
-      Arange demo with Fourier Series
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../Meshgrid/code/" class="md-nav__link">
-      Meshgrid Introduction
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Arange-FourierSeries/code/" class="md-nav__link">
+        Arange demo with Fourier Series
+      </a>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../../Meshgrid-SphericalHrmonics/code/" class="md-nav__link">
-      Meshgrid demo with Spherical Harmonics
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../Meshgrid-OptimizationExample/code/" class="md-nav__link">
-      Meshgrid demo with Optimization
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Meshgrid/code/" class="md-nav__link">
+        Meshgrid Introduction
+      </a>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../../Meshgrid-SimulationExample/code/" class="md-nav__link">
-      Meshgrid demo with Simulation
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../Algebra/code/" class="md-nav__link">
-      Algebra
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Meshgrid-SphericalHrmonics/code/" class="md-nav__link">
+        Meshgrid demo with Spherical Harmonics
+      </a>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../../Algebra-QuantumMechanics/" class="md-nav__link">
-      Algebra with Quantum Mechanics
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../Algebra-CompositeHamiltonian/code/" class="md-nav__link">
-      Algebra with Composite Hamiltonian
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Meshgrid-OptimizationExample/code/" class="md-nav__link">
+        Meshgrid demo with Optimization
+      </a>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../../Statistics/" class="md-nav__link">
-      Statistics
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../Statistics-Probability/code/" class="md-nav__link">
-      Statistics with Probability
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Meshgrid-SimulationExample/code/" class="md-nav__link">
+        Meshgrid demo with Simulation
+      </a>
+    </li>
+  
 
     
       
       
       
 
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algebra/code/" class="md-nav__link">
+        Algebra
+      </a>
+    </li>
+  
 
-  <li class="md-nav__item">
-    <a href="../../Statistics-Smpling/code/" class="md-nav__link">
-      Statistics with sampling
-    </a>
-  </li>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algebra-QuantumMechanics/" class="md-nav__link">
+        Algebra with Quantum Mechanics
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algebra-CompositeHamiltonian/code/" class="md-nav__link">
+        Algebra with Composite Hamiltonian
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Statistics/" class="md-nav__link">
+        Statistics
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Statistics-Probability/code/" class="md-nav__link">
+        Statistics with Probability
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Statistics-Smpling/code/" class="md-nav__link">
+        Statistics with sampling
+      </a>
+    </li>
+  
 
     
   </ul>
@@ -424,11 +495,14 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
   
@@ -436,7 +510,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#wave-propagation" class="md-nav__link">
@@ -494,67 +568,61 @@
               </div>
             
           
-          <div class="md-content">
+          <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
-                
-                  <h1>Arange demo with wave</h1>
-                
-                <h2 id="wave-propagation">Wave Propagation</h2>
+
+
+  <h1>Arange demo with wave</h1>
+
+<h2 id="wave-propagation">Wave Propagation</h2>
 <p>A wave function is defined as </p>
 <p>$$Y = A \sin(\omega t + kx)$$</p>
 <p>Differential equation</p>
 <p>$$\large{\frac{\partial^{2}U}{dt^{2}} = c^{2}\frac{\partial^{2}U}{dx^{2}}}$$</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">numpy</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">np</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">numpy</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">np</span>
 <span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">plt</span>
 <span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">seaborn</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">sns</span> 
 sns<span style="color: #555555">.</span>set()
 </code></pre></div>
 
-
 <ul>
 <li>Define Amplitude, angular frequency, wave vector</li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>amp <span style="color: #555555">=</span> <span style="color: #FF6600">1.0</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>amp <span style="color: #555555">=</span> <span style="color: #FF6600">1.0</span>
 freq <span style="color: #555555">=</span> <span style="color: #FF6600">1</span>
 w <span style="color: #555555">=</span> <span style="color: #FF6600">2</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">*</span>freq <span style="color: #0099FF; font-style: italic">#angular frequency</span>
 k <span style="color: #555555">=</span> <span style="color: #FF6600">2</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi <span style="color: #0099FF; font-style: italic">#wave vector</span>
 </code></pre></div>
 
-
 <ul>
 <li>Calcualte frequency, weblength and velocity</li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>wave_length <span style="color: #555555">=</span> <span style="color: #FF6600">2</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">/</span>k
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>wave_length <span style="color: #555555">=</span> <span style="color: #FF6600">2</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>pi<span style="color: #555555">/</span>k
 velocity <span style="color: #555555">=</span> freq<span style="color: #555555">*</span>wave_length
 (freq,wave_length,velocity)
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>(1, 1.0, 1.0)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>(1, 1.0, 1.0)
 </code></pre></div>
 
-
 <h3 id="plot-the-different-configuration-of-wave-motion">Plot the different configuration of wave motion</h3>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>xs <span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">5</span>,<span style="color: #FF6600">1</span><span style="color: #555555">/</span><span style="color: #FF6600">20</span>)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>xs <span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">5</span>,<span style="color: #FF6600">1</span><span style="color: #555555">/</span><span style="color: #FF6600">20</span>)
 ts <span style="color: #555555">=</span> np<span style="color: #555555">.</span>arange(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">5</span>,<span style="color: #FF6600">1</span><span style="color: #555555">/</span><span style="color: #FF6600">20</span>)
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #336666">len</span>(xs),<span style="color: #336666">len</span>(ts)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #336666">len</span>(xs),<span style="color: #336666">len</span>(ts)
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>(100, 100)
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>(100, 100)
 </code></pre></div>
-
 
 <h3 id="1-experiment-plot-the-particle-displacement-keeping-time-fixed">1. Experiment: Plot the particle displacement keeping time fixed</h3>
 <p>When we fix the time, it is a photograph of the wave motion at specific time t0. It can be represent as</p>
 <p>$$Y = A \sin (kx + \phi_{0})$$</p>
 <p>A special case is <strong>closed vibrating string</strong></p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">18</span>,<span style="color: #FF6600">2</span>])
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">18</span>,<span style="color: #FF6600">2</span>])
 t0 <span style="color: #555555">=</span> <span style="color: #FF6600">0.0</span>
 y <span style="color: #555555">=</span> amp<span style="color: #555555">*</span>np<span style="color: #555555">.</span>sin(w<span style="color: #555555">*</span>t0 <span style="color: #555555">-</span> k<span style="color: #555555">*</span>xs)
 plt<span style="color: #555555">.</span>stem(y)
@@ -563,13 +631,11 @@ plt<span style="color: #555555">.</span>ylabel(<span style="color: #CC3300">&quo
 plt<span style="color: #555555">.</span>title(<span style="color: #CC3300">&#39;Particle displacements at t=&#39;</span> <span style="color: #555555">+</span> <span style="color: #336666">str</span>(t0))
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>Text(0.5, 1.0, &#39;Particle displacements at t=0.0&#39;)
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Text(0.5, 1.0, &#39;Particle displacements at t=0.0&#39;)
 </code></pre></div>
 
-
 <p><img alt="png" src="../output_10_1.png" /></p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">18</span>,<span style="color: #FF6600">18</span>])
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">18</span>,<span style="color: #FF6600">18</span>])
 t0s <span style="color: #555555">=</span> [<span style="color: #FF6600">0.0</span>,<span style="color: #FF6600">0.1</span>,<span style="color: #FF6600">0.2</span>,<span style="color: #FF6600">0.3</span>,<span style="color: #FF6600">0.4</span>]
 <span style="color: #006699; font-weight: bold">for</span> i,t0 <span style="color: #000000; font-weight: bold">in</span> <span style="color: #336666">enumerate</span>(t0s):
     plt<span style="color: #555555">.</span>subplot(<span style="color: #336666">len</span>(t0s),<span style="color: #FF6600">1</span>,i<span style="color: #555555">+</span><span style="color: #FF6600">1</span>)
@@ -580,13 +646,12 @@ t0s <span style="color: #555555">=</span> [<span style="color: #FF6600">0.0</spa
 plt<span style="color: #555555">.</span>show()
 </code></pre></div>
 
-
 <p><img alt="png" src="../output_11_0.png" /></p>
 <h3 id="2-experiment-plot-the-particle-displacement-keeping-position-fixed">2. Experiment: Plot the particle displacement keeping position fixed</h3>
 <p>When we fix the position and look at a single particle displacement, it behaves like a harmonic oscillator. It can be represent as</p>
 <p>$$Y = A \sin (\omega t + \phi_{0})$$</p>
 <p>A special case is <strong>harmonic oscillator</strong></p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">18</span>,<span style="color: #FF6600">2</span>])
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">18</span>,<span style="color: #FF6600">2</span>])
 x0 <span style="color: #555555">=</span> <span style="color: #FF6600">0.0</span>
 y <span style="color: #555555">=</span> amp<span style="color: #555555">*</span>np<span style="color: #555555">.</span>sin(w<span style="color: #555555">*</span>ts <span style="color: #555555">-</span> k<span style="color: #555555">*</span>x0)
 plt<span style="color: #555555">.</span>stem(y)
@@ -595,13 +660,11 @@ plt<span style="color: #555555">.</span>ylabel(<span style="color: #CC3300">&quo
 plt<span style="color: #555555">.</span>title(<span style="color: #CC3300">&quot;Particle motion at x=&quot;</span> <span style="color: #555555">+</span> <span style="color: #336666">str</span>(x0))
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>Text(0.5, 1.0, &#39;Particle motion at x=0.0&#39;)
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Text(0.5, 1.0, &#39;Particle motion at x=0.0&#39;)
 </code></pre></div>
 
-
 <p><img alt="png" src="../output_13_1.png" /></p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">18</span>,<span style="color: #FF6600">18</span>])
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>plt<span style="color: #555555">.</span>figure(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">18</span>,<span style="color: #FF6600">18</span>])
 x0s <span style="color: #555555">=</span> [<span style="color: #FF6600">0.0</span>,<span style="color: #FF6600">0.1</span>,<span style="color: #FF6600">0.2</span>,<span style="color: #FF6600">0.3</span>,<span style="color: #FF6600">0.4</span>]
 <span style="color: #006699; font-weight: bold">for</span> i,x0 <span style="color: #000000; font-weight: bold">in</span> <span style="color: #336666">enumerate</span>(t0s):
     plt<span style="color: #555555">.</span>subplot(<span style="color: #336666">len</span>(x0s),<span style="color: #FF6600">1</span>,i<span style="color: #555555">+</span><span style="color: #FF6600">1</span>)
@@ -612,7 +675,6 @@ x0s <span style="color: #555555">=</span> [<span style="color: #FF6600">0.0</spa
 plt<span style="color: #555555">.</span>show()
 </code></pre></div>
 
-
 <p><img alt="png" src="../output_14_0.png" /></p>
 <hr />
 <h3 id="animation-1d">Animation 1D</h3>
@@ -621,84 +683,75 @@ plt<span style="color: #555555">.</span>show()
 <h3 id="next-step">Next Step:</h3>
 <p>Wave Propagation in 2D (<code>numpy meshgrid</code>)</p>
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/2D_Wave_Function_resize.gif" width="250" height ="300"> </img></p>
-                
-              
-              
-                
-
 
               
             </article>
           </div>
         </div>
+        
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
         
-          <a href="../../Arange-Oscillation/code/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <a href="../../Arange-Oscillation/code/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Arange demo with oscillation" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Arange demo with oscillation
             </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Arange demo with oscillation
-              </div>
-            </div>
-          </a>
+          </div>
+        </a>
+      
+      
         
-        
-          <a href="../../Arange-FourierSeries/code/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Arange demo with Fourier Series
-              </div>
+        <a href="../../Arange-FourierSeries/code/" class="md-footer__link md-footer__link--next" aria-label="Next: Arange demo with Fourier Series" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Arange demo with Fourier Series
             </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
 </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
-      <script src="../../assets/javascripts/vendor.77e55a48.min.js"></script>
-      <script src="../../assets/javascripts/bundle.9554a270.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
-      
-      <script>
-        app = initialize({
-          base: "../..",
-          features: [],
-          search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+    
+      <script src="../../assets/javascripts/bundle.c44cc438.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

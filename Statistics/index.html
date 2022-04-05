@@ -8,8 +8,8 @@
       
       
       
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.2">
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.8">
     
     
       
@@ -17,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.38780c08.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.644de097.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.3f72e892.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -28,15 +28,17 @@
     
       
         
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+
     
     
   </head>
@@ -48,8 +50,9 @@
     
     
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
-      
   
+    
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -65,48 +68,58 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href=".." title="Numpy Tutorials" class="md-header-nav__button md-logo" aria-label="Numpy Tutorials">
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Numpy Tutorials" class="md-header__button md-logo" aria-label="Numpy Tutorials" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
+    <label class="md-header__button md-icon" for="__drawer">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
-      
-        <div class="md-header-nav__ellipsis">
-          <span class="md-header-nav__topic md-ellipsis">
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             Numpy Tutorials
           </span>
-          <span class="md-header-nav__topic md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
               Statistics
             
           </span>
         </div>
-      
+      </div>
     </div>
     
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -123,26 +136,33 @@
     
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
         
+          
+        
       
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Numpy Tutorials" class="md-nav__button md-logo" aria-label="Numpy Tutorials">
+    <a href=".." title="Numpy Tutorials" class="md-nav__button md-logo" aria-label="Numpy Tutorials" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
     Numpy Tutorials
@@ -154,156 +174,15 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href=".." class="md-nav__link">
-      Home
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../Array-Intro/code/" class="md-nav__link">
-      Array Introduction
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../Arange/code/" class="md-nav__link">
-      Arange
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../Arange-Oscillation/code/" class="md-nav__link">
-      Arange demo with oscillation
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../Arange-Wave/code/" class="md-nav__link">
-      Arange demo with wave
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../Arange-FourierSeries/code/" class="md-nav__link">
-      Arange demo with Fourier Series
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../Meshgrid/code/" class="md-nav__link">
-      Meshgrid Introduction
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../Meshgrid-SphericalHrmonics/code/" class="md-nav__link">
-      Meshgrid demo with Spherical Harmonics
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../Meshgrid-OptimizationExample/code/" class="md-nav__link">
-      Meshgrid demo with Optimization
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../Meshgrid-SimulationExample/code/" class="md-nav__link">
-      Meshgrid demo with Simulation
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../Algebra/code/" class="md-nav__link">
-      Algebra
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../Algebra-QuantumMechanics/" class="md-nav__link">
-      Algebra with Quantum Mechanics
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../Algebra-CompositeHamiltonian/code/" class="md-nav__link">
-      Algebra with Composite Hamiltonian
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
 
     
       
@@ -311,24 +190,209 @@
       
 
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../Array-Intro/code/" class="md-nav__link">
+        Array Introduction
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Statistics
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
-      Statistics
-    </a>
     
       
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Arange/code/" class="md-nav__link">
+        Arange
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Arange-Oscillation/code/" class="md-nav__link">
+        Arange demo with oscillation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Arange-Wave/code/" class="md-nav__link">
+        Arange demo with wave
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Arange-FourierSeries/code/" class="md-nav__link">
+        Arange demo with Fourier Series
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Meshgrid/code/" class="md-nav__link">
+        Meshgrid Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Meshgrid-SphericalHrmonics/code/" class="md-nav__link">
+        Meshgrid demo with Spherical Harmonics
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Meshgrid-OptimizationExample/code/" class="md-nav__link">
+        Meshgrid demo with Optimization
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Meshgrid-SimulationExample/code/" class="md-nav__link">
+        Meshgrid demo with Simulation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Algebra/code/" class="md-nav__link">
+        Algebra
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Algebra-QuantumMechanics/" class="md-nav__link">
+        Algebra with Quantum Mechanics
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Algebra-CompositeHamiltonian/code/" class="md-nav__link">
+        Algebra with Composite Hamiltonian
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Statistics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Statistics
+      </a>
+      
+        
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
   
@@ -336,7 +400,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#satistics-introduction" class="md-nav__link">
@@ -422,32 +486,39 @@
     </ul>
   
 </nav>
-    
-  </li>
+      
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../Statistics-Probability/code/" class="md-nav__link">
-      Statistics with Probability
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Statistics-Probability/code/" class="md-nav__link">
+        Statistics with Probability
+      </a>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../Statistics-Smpling/code/" class="md-nav__link">
-      Statistics with sampling
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Statistics-Smpling/code/" class="md-nav__link">
+        Statistics with sampling
+      </a>
+    </li>
+  
 
     
   </ul>
@@ -457,11 +528,14 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
   
@@ -469,7 +543,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#satistics-introduction" class="md-nav__link">
@@ -560,27 +634,26 @@
               </div>
             
           
-          <div class="md-content">
+          <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
-                
-                  <h1>Statistics</h1>
-                
-                <h2 id="satistics-introduction">Satistics - Introduction</h2>
+
+
+  <h1>Statistics</h1>
+
+<h2 id="satistics-introduction">Satistics - Introduction</h2>
 <p>https://numpy.org/doc/stable/reference/routines.statistics.html</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">numpy</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">np</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">numpy</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">np</span>
 <span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">pandas</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">pd</span>
 </code></pre></div>
 
-
 <h3 id="1-simple-statistical-exploration">1. Simple Statistical Exploration</h3>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>A <span style="color: #555555">=</span> np<span style="color: #555555">.</span>random<span style="color: #555555">.</span>rand(<span style="color: #FF6600">10</span>,<span style="color: #FF6600">10</span>)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>A <span style="color: #555555">=</span> np<span style="color: #555555">.</span>random<span style="color: #555555">.</span>rand(<span style="color: #FF6600">10</span>,<span style="color: #FF6600">10</span>)
 A
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([[7.16622070e-01, 8.67937006e-01, 8.56064808e-01, 8.57568350e-01,
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>array([[7.16622070e-01, 8.67937006e-01, 8.56064808e-01, 8.57568350e-01,
         3.67796230e-01, 2.14346363e-01, 6.31599734e-01, 3.57119296e-01,
         4.35844862e-01, 2.35483572e-01],
        [7.22209004e-01, 9.63310994e-01, 8.16973750e-01, 8.06853501e-01,
@@ -612,60 +685,46 @@ A
         6.04160360e-01, 4.48347194e-01]])
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>A<span style="color: #555555">.</span>shape
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>A<span style="color: #555555">.</span>shape
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>(10, 10)
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>(10, 10)
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>A<span style="color: #555555">.</span>max()
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>A<span style="color: #555555">.</span>max()
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>0.9793332463866128
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>0.9793332463866128
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>A<span style="color: #555555">.</span>min()
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>A<span style="color: #555555">.</span>min()
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>0.00048511851159238617
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>0.00048511851159238617
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>A<span style="color: #555555">.</span>mean()
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>A<span style="color: #555555">.</span>mean()
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>0.523381592476641
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>0.523381592476641
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>np<span style="color: #555555">.</span>median(A)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>np<span style="color: #555555">.</span>median(A)
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>0.47355280212201306
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>0.47355280212201306
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>A<span style="color: #555555">.</span>std()
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>A<span style="color: #555555">.</span>std()
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>0.2772531462004282
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>0.2772531462004282
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>np<span style="color: #555555">.</span>cov(A)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>np<span style="color: #555555">.</span>cov(A)
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([[ 0.06873698,  0.03278827,  0.03668793, -0.00331421, -0.05083651,
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>array([[ 0.06873698,  0.03278827,  0.03668793, -0.00331421, -0.05083651,
         -0.00850994,  0.02390898, -0.02626347,  0.03131505, -0.01397033],
        [ 0.03278827,  0.09816338,  0.01792033,  0.04059124,  0.01004886,
          0.02993195,  0.03987967, -0.05153719, -0.00568755,  0.03430207],
@@ -687,44 +746,35 @@ A
          0.03377649,  0.00634826, -0.04495907, -0.01455545,  0.04560073]])
 </code></pre></div>
 
-
 <h4 id="mean-and-std-of-row">Mean and std of row</h4>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>np<span style="color: #555555">.</span>mean(A,axis <span style="color: #555555">=</span><span style="color: #FF6600">0</span>)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>np<span style="color: #555555">.</span>mean(A,axis <span style="color: #555555">=</span><span style="color: #FF6600">0</span>)
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([0.50433178, 0.66547913, 0.67612038, 0.49196731, 0.49381086,
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>array([0.50433178, 0.66547913, 0.67612038, 0.49196731, 0.49381086,
        0.53149283, 0.3763541 , 0.58175954, 0.42736833, 0.48513166])
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>np<span style="color: #555555">.</span>std(A,axis <span style="color: #555555">=</span><span style="color: #FF6600">0</span>)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>np<span style="color: #555555">.</span>std(A,axis <span style="color: #555555">=</span><span style="color: #FF6600">0</span>)
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([0.22924647, 0.28962689, 0.22578381, 0.24259586, 0.21017855,
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>array([0.22924647, 0.28962689, 0.22578381, 0.24259586, 0.21017855,
        0.2908006 , 0.26627669, 0.33170298, 0.25736132, 0.25495454])
 </code></pre></div>
 
-
 <h4 id="mean-and-std-of-col">Mean and std of col</h4>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>np<span style="color: #555555">.</span>mean(A,axis <span style="color: #555555">=</span><span style="color: #FF6600">1</span>)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>np<span style="color: #555555">.</span>mean(A,axis <span style="color: #555555">=</span><span style="color: #FF6600">1</span>)
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([0.55403823, 0.58724228, 0.72067399, 0.49002029, 0.38966709,
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>array([0.55403823, 0.58724228, 0.72067399, 0.49002029, 0.38966709,
        0.37327189, 0.57290808, 0.5268799 , 0.48303793, 0.53607623])
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>np<span style="color: #555555">.</span>std(A,axis <span style="color: #555555">=</span> <span style="color: #FF6600">1</span>)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>np<span style="color: #555555">.</span>std(A,axis <span style="color: #555555">=</span> <span style="color: #FF6600">1</span>)
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([0.2487233 , 0.29723231, 0.19544236, 0.22356186, 0.29519126,
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>array([0.2487233 , 0.29723231, 0.19544236, 0.22356186, 0.29519126,
        0.2287346 , 0.20514927, 0.34228207, 0.31755658, 0.20258494])
 </code></pre></div>
-
 
 <h3 id="2-feature-scaling">2. Feature Scaling:</h3>
 <ul>
@@ -734,12 +784,11 @@ A
 </ol>
 </li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>A <span style="color: #555555">=</span> (<span style="color: #FF6600">100</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>random<span style="color: #555555">.</span>rand(<span style="color: #FF6600">10</span>,<span style="color: #FF6600">10</span>))<span style="color: #555555">.</span>astype(<span style="color: #336666">int</span>)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>A <span style="color: #555555">=</span> (<span style="color: #FF6600">100</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>random<span style="color: #555555">.</span>rand(<span style="color: #FF6600">10</span>,<span style="color: #FF6600">10</span>))<span style="color: #555555">.</span>astype(<span style="color: #336666">int</span>)
 A
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([[59, 39, 55, 69, 55, 10, 89, 79, 71, 77],
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>array([[59, 39, 55, 69, 55, 10, 89, 79, 71, 77],
        [36, 72, 69, 36, 38, 43, 21, 53, 65, 18],
        [29, 78, 85, 77, 11, 85, 73, 83, 47, 82],
        [17, 70, 94, 48, 10, 68, 92, 96, 12, 56],
@@ -751,16 +800,13 @@ A
        [67, 76, 64, 47, 73, 82, 77, 67, 15, 49]])
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>A_mm <span style="color: #555555">=</span> (A <span style="color: #555555">-</span> A<span style="color: #555555">.</span>min())<span style="color: #555555">/</span>(A<span style="color: #555555">.</span>max()<span style="color: #555555">-</span>A<span style="color: #555555">.</span>min())
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>A_mm <span style="color: #555555">=</span> (A <span style="color: #555555">-</span> A<span style="color: #555555">.</span>min())<span style="color: #555555">/</span>(A<span style="color: #555555">.</span>max()<span style="color: #555555">-</span>A<span style="color: #555555">.</span>min())
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>A_mm
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>A_mm
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([[0.58064516, 0.3655914 , 0.53763441, 0.68817204, 0.53763441,
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>array([[0.58064516, 0.3655914 , 0.53763441, 0.68817204, 0.53763441,
         0.05376344, 0.90322581, 0.79569892, 0.70967742, 0.77419355],
        [0.33333333, 0.72043011, 0.68817204, 0.33333333, 0.35483871,
         0.40860215, 0.17204301, 0.51612903, 0.64516129, 0.13978495],
@@ -782,15 +828,13 @@ A
         0.82795699, 0.77419355, 0.66666667, 0.10752688, 0.47311828]])
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">sklearn</span> <span style="color: #006699; font-weight: bold">import</span> preprocessing
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">sklearn</span> <span style="color: #006699; font-weight: bold">import</span> preprocessing
 
 A_scaled <span style="color: #555555">=</span> preprocessing<span style="color: #555555">.</span>MinMaxScaler()<span style="color: #555555">.</span>fit(A)<span style="color: #555555">.</span>transform(A)
 A_scaled
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>C:\ProgramData\Anaconda3\lib\site-packages\sklearn\utils\validation.py:595: DataConversionWarning: Data with input dtype int32 was converted to float64 by MinMaxScaler.
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>C:\ProgramData\Anaconda3\lib\site-packages\sklearn\utils\validation.py:595: DataConversionWarning: Data with input dtype int32 was converted to float64 by MinMaxScaler.
   warnings.warn(msg, DataConversionWarning)
 
 
@@ -819,7 +863,6 @@ array([[0.66666667, 0.32183908, 0.390625  , 0.8490566 , 0.59210526,
         0.84705882, 0.81707317, 0.60810811, 0.03529412, 0.45      ]])
 </code></pre></div>
 
-
 <ul>
 <li>
 <ol>
@@ -827,12 +870,11 @@ array([[0.66666667, 0.32183908, 0.390625  , 0.8490566 , 0.59210526,
 </ol>
 </li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>A <span style="color: #555555">=</span> (<span style="color: #FF6600">100</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>random<span style="color: #555555">.</span>rand(<span style="color: #FF6600">10</span>,<span style="color: #FF6600">10</span>))<span style="color: #555555">.</span>astype(<span style="color: #336666">int</span>)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>A <span style="color: #555555">=</span> (<span style="color: #FF6600">100</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>random<span style="color: #555555">.</span>rand(<span style="color: #FF6600">10</span>,<span style="color: #FF6600">10</span>))<span style="color: #555555">.</span>astype(<span style="color: #336666">int</span>)
 A
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([[17, 26, 40, 45, 98, 42, 77, 67,  1, 98],
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>array([[17, 26, 40, 45, 98, 42, 77, 67,  1, 98],
        [ 8, 52, 68,  2,  6, 89, 76, 44,  2,  4],
        [30, 57,  9, 48, 57, 26, 71, 42, 49,  0],
        [13, 18, 65, 81, 36,  2, 25,  7, 80, 18],
@@ -844,16 +886,13 @@ A
        [72, 33, 16, 78, 12,  6, 63, 25, 28, 24]])
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>A_ss <span style="color: #555555">=</span> A <span style="color: #555555">-</span> A<span style="color: #555555">.</span>mean()<span style="color: #555555">/</span>A<span style="color: #555555">.</span>std()
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>A_ss <span style="color: #555555">=</span> A <span style="color: #555555">-</span> A<span style="color: #555555">.</span>mean()<span style="color: #555555">/</span>A<span style="color: #555555">.</span>std()
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>A_ss
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>A_ss
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([[15.48180308, 24.48180308, 38.48180308, 43.48180308, 96.48180308,
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>array([[15.48180308, 24.48180308, 38.48180308, 43.48180308, 96.48180308,
         40.48180308, 75.48180308, 65.48180308, -0.51819692, 96.48180308],
        [ 6.48180308, 50.48180308, 66.48180308,  0.48180308,  4.48180308,
         87.48180308, 74.48180308, 42.48180308,  0.48180308,  2.48180308],
@@ -875,15 +914,13 @@ A
          4.48180308, 61.48180308, 23.48180308, 26.48180308, 22.48180308]])
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">sklearn</span> <span style="color: #006699; font-weight: bold">import</span> preprocessing
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">sklearn</span> <span style="color: #006699; font-weight: bold">import</span> preprocessing
 
 A_scaled <span style="color: #555555">=</span> preprocessing<span style="color: #555555">.</span>StandardScaler()<span style="color: #555555">.</span>fit(A)<span style="color: #555555">.</span>transform(A)
 A_scaled
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>C:\ProgramData\Anaconda3\lib\site-packages\sklearn\utils\validation.py:595: DataConversionWarning: Data with input dtype int32 was converted to float64 by StandardScaler.
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>C:\ProgramData\Anaconda3\lib\site-packages\sklearn\utils\validation.py:595: DataConversionWarning: Data with input dtype int32 was converted to float64 by StandardScaler.
   warnings.warn(msg, DataConversionWarning)
 C:\ProgramData\Anaconda3\lib\site-packages\sklearn\utils\validation.py:595: DataConversionWarning: Data with input dtype int32 was converted to float64 by StandardScaler.
   warnings.warn(msg, DataConversionWarning)
@@ -914,7 +951,6 @@ array([[-0.74717972, -0.65678879, -0.40228321, -0.30436663,  2.05218778,
         -1.13605715,  0.49918615, -0.87491373, -0.4357792 , -0.56133169]])
 </code></pre></div>
 
-
 <h2 id="bayes-theorem">Baye's Theorem:</h2>
 <p>An important philosophy in Machine Learning and Statistics.</p>
 <p><img src = "https://miro.medium.com/max/1994/1*CnoTGGO7XeUpUMeXDrIfvA.png" height=400 width=550> <img></p>
@@ -924,12 +960,11 @@ array([[-0.74717972, -0.65678879, -0.40228321, -0.30436663,  2.05218778,
 4. <a href="https://arxiv.org/abs/1601.02036">Quantum Boltzman Machine</a>: Fusion of Machine Learning and Quantum Physics
 5. <a href="https://en.wikipedia.org/wiki/Markov_random_field">Markove Random Field</a>: Is there a Field Theory in Machine Learning?</p>
 <h4 id="a-simple-demo-illustration-bayes-theorm">A simple demo illustration Baye's theorm</h4>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>A <span style="color: #555555">=</span> (<span style="color: #FF6600">100</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>random<span style="color: #555555">.</span>rand(<span style="color: #FF6600">10</span>,<span style="color: #FF6600">4</span>))<span style="color: #555555">.</span>astype(<span style="color: #336666">int</span>)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>A <span style="color: #555555">=</span> (<span style="color: #FF6600">100</span><span style="color: #555555">*</span>np<span style="color: #555555">.</span>random<span style="color: #555555">.</span>rand(<span style="color: #FF6600">10</span>,<span style="color: #FF6600">4</span>))<span style="color: #555555">.</span>astype(<span style="color: #336666">int</span>)
 A 
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>array([[38, 15, 66, 92],
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>array([[38, 15, 66, 92],
        [16, 60, 96, 18],
        [18, 80, 14, 60],
        [88, 41, 31, 33],
@@ -941,15 +976,12 @@ A
        [60, 56,  3, 63]])
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>DataFrame(A, columns<span style="color: #555555">=</span> [<span style="color: #CC3300">&#39;bud&#39;</span>,<span style="color: #CC3300">&#39;green&#39;</span>,<span style="color: #CC3300">&#39;ripen&#39;</span>,<span style="color: #CC3300">&#39;rotten&#39;</span>],\
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>df <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>DataFrame(A, columns<span style="color: #555555">=</span> [<span style="color: #CC3300">&#39;bud&#39;</span>,<span style="color: #CC3300">&#39;green&#39;</span>,<span style="color: #CC3300">&#39;ripen&#39;</span>,<span style="color: #CC3300">&#39;rotten&#39;</span>],\
                   index<span style="color: #555555">=</span> [<span style="color: #CC3300">&#39;apple&#39;</span>,<span style="color: #CC3300">&#39;guava&#39;</span>,<span style="color: #CC3300">&#39;mango&#39;</span>,<span style="color: #CC3300">&#39;orange&#39;</span>,<span style="color: #CC3300">&#39;banana&#39;</span>,<span style="color: #CC3300">&#39;pear&#39;</span>,<span style="color: #CC3300">&#39;papaya&#39;</span>,<span style="color: #CC3300">&#39;strwberrey&#39;</span>,<span style="color: #CC3300">&#39;grape&#39;</span>,<span style="color: #CC3300">&#39;melon&#39;</span>])
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>df
 </code></pre></div>
-
 
 <div>
 <style scoped>
@@ -1050,51 +1082,42 @@ A
 </table>
 </div>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df<span style="color: #555555">.</span>sum()
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>df<span style="color: #555555">.</span>sum()
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>bud       535
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>bud       535
 green     475
 ripen     427
 rotten    683
 dtype: int64
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #336666">sum</span>(df<span style="color: #555555">.</span>sum())
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #336666">sum</span>(df<span style="color: #555555">.</span>sum())
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>2120
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>2120
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df<span style="color: #555555">.</span>loc[<span style="color: #CC3300">&#39;apple&#39;</span>,<span style="color: #CC3300">&#39;bud&#39;</span>]
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>df<span style="color: #555555">.</span>loc[<span style="color: #CC3300">&#39;apple&#39;</span>,<span style="color: #CC3300">&#39;bud&#39;</span>]
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>38
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>38
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df<span style="color: #555555">.</span>loc[<span style="color: #CC3300">&#39;apple&#39;</span>,:]
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>df<span style="color: #555555">.</span>loc[<span style="color: #CC3300">&#39;apple&#39;</span>,:]
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>bud       38
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>bud       38
 green     15
 ripen     66
 rotten    92
 Name: apple, dtype: int32
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df<span style="color: #555555">.</span>loc[:,<span style="color: #CC3300">&#39;ripen&#39;</span>]
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>df<span style="color: #555555">.</span>loc[:,<span style="color: #CC3300">&#39;ripen&#39;</span>]
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>apple         66
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>apple         66
 guava         96
 mango         14
 orange        31
@@ -1107,34 +1130,29 @@ melon          3
 Name: ripen, dtype: int32
 </code></pre></div>
 
-
 <ul>
 <li>P(ripen|apple) = ?</li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df<span style="color: #555555">.</span>loc[<span style="color: #CC3300">&#39;apple&#39;</span>,<span style="color: #CC3300">&#39;ripen&#39;</span>]<span style="color: #555555">/</span>df<span style="color: #555555">.</span>loc[<span style="color: #CC3300">&#39;apple&#39;</span>,:]<span style="color: #555555">.</span>sum()
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>df<span style="color: #555555">.</span>loc[<span style="color: #CC3300">&#39;apple&#39;</span>,<span style="color: #CC3300">&#39;ripen&#39;</span>]<span style="color: #555555">/</span>df<span style="color: #555555">.</span>loc[<span style="color: #CC3300">&#39;apple&#39;</span>,:]<span style="color: #555555">.</span>sum()
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>0.3127962085308057
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>0.3127962085308057
 </code></pre></div>
-
 
 <ul>
 <li>P(apple|ripen) = ?</li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df<span style="color: #555555">.</span>loc[<span style="color: #CC3300">&#39;apple&#39;</span>,<span style="color: #CC3300">&#39;ripen&#39;</span>]<span style="color: #555555">/</span>df<span style="color: #555555">.</span>loc[:,<span style="color: #CC3300">&#39;ripen&#39;</span>]<span style="color: #555555">.</span>sum()
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>df<span style="color: #555555">.</span>loc[<span style="color: #CC3300">&#39;apple&#39;</span>,<span style="color: #CC3300">&#39;ripen&#39;</span>]<span style="color: #555555">/</span>df<span style="color: #555555">.</span>loc[:,<span style="color: #CC3300">&#39;ripen&#39;</span>]<span style="color: #555555">.</span>sum()
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>0.15456674473067916
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>0.15456674473067916
 </code></pre></div>
-
 
 <h4 id="implementing-bayes-theorem">Implementing Baye's theorem</h4>
 <ul>
 <li>$P(apple|ripen) = \frac{p(ripen|apple)*p(apple)}{p(ripen)}$</li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>p_apple <span style="color: #555555">=</span> df<span style="color: #555555">.</span>loc[<span style="color: #CC3300">&#39;apple&#39;</span>,:]<span style="color: #555555">.</span>sum()<span style="color: #555555">/</span><span style="color: #336666">sum</span>(df<span style="color: #555555">.</span>sum())
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>p_apple <span style="color: #555555">=</span> df<span style="color: #555555">.</span>loc[<span style="color: #CC3300">&#39;apple&#39;</span>,:]<span style="color: #555555">.</span>sum()<span style="color: #555555">/</span><span style="color: #336666">sum</span>(df<span style="color: #555555">.</span>sum())
 p_ripen_given_apple <span style="color: #555555">=</span> df<span style="color: #555555">.</span>loc[<span style="color: #CC3300">&#39;apple&#39;</span>,<span style="color: #CC3300">&#39;ripen&#39;</span>]<span style="color: #555555">/</span>df<span style="color: #555555">.</span>loc[<span style="color: #CC3300">&#39;apple&#39;</span>,:]<span style="color: #555555">.</span>sum()
 p_ripen <span style="color: #555555">=</span> df<span style="color: #555555">.</span>loc[:,<span style="color: #CC3300">&#39;ripen&#39;</span>]<span style="color: #555555">.</span>sum()<span style="color: #555555">/</span><span style="color: #336666">sum</span>(df<span style="color: #555555">.</span>sum())
 
@@ -1142,10 +1160,8 @@ p_apple_given_ripen <span style="color: #555555">=</span> (p_ripen_given_apple<s
 p_apple_given_ripen
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>0.15456674473067916
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>0.15456674473067916
 </code></pre></div>
-
 
 <h4 id="mini-assignment">Mini Assignment:</h4>
 <ol>
@@ -1153,84 +1169,75 @@ p_apple_given_ripen
 <li>Perform feature scaling (minimax scalar and standard scalar) by direct calculation of minimunm, maximum, mean, standard deviation from dataframe/array</li>
 <li>Implement Scikit-learn preprocessing pipeline to perform feature scaling</li>
 </ol>
-                
-              
-              
-                
-
 
               
             </article>
           </div>
         </div>
+        
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
         
-          <a href="../Algebra-CompositeHamiltonian/code/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <a href="../Algebra-CompositeHamiltonian/code/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Algebra with Composite Hamiltonian" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Algebra with Composite Hamiltonian
             </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Algebra with Composite Hamiltonian
-              </div>
-            </div>
-          </a>
+          </div>
+        </a>
+      
+      
         
-        
-          <a href="../Statistics-Probability/code/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Statistics with Probability
-              </div>
+        <a href="../Statistics-Probability/code/" class="md-footer__link md-footer__link--next" aria-label="Next: Statistics with Probability" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Statistics with Probability
             </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
 </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
-      <script src="../assets/javascripts/vendor.77e55a48.min.js"></script>
-      <script src="../assets/javascripts/bundle.9554a270.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
-      
-      <script>
-        app = initialize({
-          base: "..",
-          features: [],
-          search: Object.assign({
-            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+    
+      <script src="../assets/javascripts/bundle.c44cc438.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
