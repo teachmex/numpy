@@ -1,2 +1,2 @@
-# Numpy 'How To' by TEACH ME CODES
+# How To Numpy by TEACH ME CODES
 
