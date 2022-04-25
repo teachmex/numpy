@@ -31,6 +31,12 @@ markdown_extensions:
       use_pygments: true
       noclasses: true
       pygments_style: manni
+
+
+extra:
+  analytics:
+    provider: google
+    property: UA-156178967-1
       
 
 
